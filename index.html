@@ -1,255 +1,277 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Pide Tu Chuche</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="css/index.css">
-    <script src="https://kit.fontawesome.com/0634a1d485.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <!-- PROXIMAMENTE -->
+<head>
+  <meta charset="utf-8">
+  <title>Pide Tu Chuche</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="css/index.css">
+  <script src="https://kit.fontawesome.com/0634a1d485.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- PROXIMAMENTE -->
 
-    <section id="vhele" class="background-prox">
-      <div data-aos="zoom-in" class="center">
-        <img  src="img/logo.png" class="img-fluid logo-prox levitar" alt="">
-        <h2>PROXIMAMENTE</h2>
-        <button id="scrollButton" type="button" name="button"> Busca tu chuche </button>
-        <div id="info" class="">
+<section id="vhele" class="background-prox">
+  <div data-aos="zoom-in" class="center">
+    <img  src="img/logo.png" class="img-fluid logo-prox levitar" alt="">
+    <h2>PROXIMAMENTE</h2>
+    <button id="scrollButton" type="button" name="button"> Busca tu chuche </button>
+    <div id="info" class="">
 
-        </div>
-      </div>
-    </section>
-
-
+    </div>
+  </div>
+</section>
 
 
 <div class="opacity">
-    <div class="pos-f-t">
-      <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-          <h4 class="text-white">PideTuChuche Admin</h4>
-          <span class="text-muted">Aqui puedes inciar sesion</span>
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                  Login
-                </button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createProduct">
-                  Launch demo modal
-                </button>
+  <div class="pos-f-t">
+    <!-- Modal create product -->
+    <!-- Modal -->
+    <div class="modal fade" id="createProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
 
-                <div class="modal fade" id="createProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <div id="create-product" class="container">
-                          <form id="createForm">
-                            <div class="form-group">
-                              <label for="product_name">Nombre del producto</label>
-                              <input type="text" class="form-control" id="product_name" placeholder="Nutella, Pringles, RedBull...">
-                            </div>
-                            <div class="custom-file">
-                              <div class="form-group">
-                                <input type="file" class="" id="product_img">
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label for="product_description">Descripcion</label>
-                              <textarea class="form-control" id="product_description" rows="3" placeholder="que riclino vale"></textarea>
-                            </div>
-                            <div class="row">
-                              <div class="col">
-                                <div class="form-group">
-                                  <label for="product_quantity">Cantidad</label>
-                                  <input type="text" class="form-control" id="product_quantity" placeholder="cuantos">
-                                </div>
-                              </div>
-                              <div class="col">
-                                <div class="form-group">
-                                  <label for="product_priority">Prioridad</label>
-                                  <input type="text" class="form-control" id="product_priority" placeholder="prioridad">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col">
-                                <div class="form-group">
-                                  <label for="product_price">Precio</label>
-                                  <input type="text" class="form-control" id="product_price" placeholder="cuantos">
-                                </div>
-                              </div>
-                              <div class="col">
-                                <div class="form-group">
-                                  <label for="product_discount">Descuento</label>
-                                  <input type="text" class="form-control" id="product_discount" placeholder="prioridad">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label>Categorias</label>
-                              <br>
-                              <label>Chocolates </label><input type="checkbox" value="chocolates" id="categoria0">
-                              <lable>Gomitas </lable><input type="checkbox" value="gomitas" id="categoria1">
-                              <label>Cereal </label><input type="checkbox" value="cereal" id="categoria2">
-                              <label>Galletas </label><input type="checkbox" value="galletas" id="categoria3">
-                              <label>Combos </label><input type="checkbox" value="combos" id="categoria4">
-                              <br>
-                              <label>Papitas </label><input type="checkbox" value="papitas" id="categoria5">
-                              <label>Ramen </label><input type="checkbox" value="ramen" id="categoria6">
-                              <label>Chicles </label><input type="checkbox" value="chicles" id="categoria7">
-                              <label>Bebidas </label><input type="checkbox" value="bebidas" id="categoria8">
-                              <label>Alimentos </label><input type="checkbox" value="alimentos" id="categoria9">
-
-                            </div>
-                            <button onclick="createProduct()" type="button" name="button"> crear</button>
-                            <button onclick="printTok()" type="button" name="button"> revisar token</button>
-
-                          </form>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                      </div>
+          <div class="modal-body">
+            <div id="create-product" class="container">
+              <form id="createForm">
+                <div class="form-group">
+                  <label for="product_name">Nombre del producto</label>
+                  <input type="text" class="form-control" id="product_name" placeholder="Nutella, Pringles, RedBull...">
+                </div>
+                <div class="custom-file">
+                  <div class="form-group">
+                    <input type="file" class="" id="product_img">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="product_description">Descripcion</label>
+                  <input type="text" class="form-control" id="product_description" placeholder="que riclino vale">
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="product_quantity">Cantidad</label>
+                      <input type="text" class="form-control" id="product_quantity" placeholder="cuantos">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="product_priority">Prioridad</label>
+                      <input type="text" class="form-control" id="product_priority" placeholder="prioridad">
                     </div>
                   </div>
                 </div>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
-                        <button onclick="loginOnClick()" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <form>
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                          </div>
-                          <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                          </div>
-                          <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" onclick="loginOnClick()" class="btn btn-primary">Entrar</button>
-                      </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="product_price">Precio</label>
+                      <input type="text" class="form-control" id="product_price" placeholder="cuantos">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="product_discount">Descuento</label>
+                      <input type="text" class="form-control" id="product_discount" placeholder="prioridad">
                     </div>
                   </div>
                 </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <nav class="navbar navbar-transparent">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button>
-        <img  src="img/logo.png" class="img-fluid logo-nav levitar" alt="">
-      </nav>
-    </div>
+                <div class="form-group">
+                  <label>Categorias</label>
+                  <br>
+                  <label>Chocolates </label><input type="checkbox" value="chocolates" id="categoria0">
+                  <lable>Gomitas </lable><input type="checkbox" value="gomitas" id="categoria1">
+                  <label>Cereal </label><input type="checkbox" value="cereal" id="categoria2">
+                  <label>Galletas </label><input type="checkbox" value="galletas" id="categoria3">
+                  <label>Combos </label><input type="checkbox" value="combos" id="categoria4">
+                  <br>
+                  <label>Papitas </label><input type="checkbox" value="papitas" id="categoria5">
+                  <label>Ramen </label><input type="checkbox" value="ramen" id="categoria6">
+                  <label>Chicles </label><input type="checkbox" value="chicles" id="categoria7">
+                  <label>Bebidas </label><input type="checkbox" value="bebidas" id="categoria8">
+                  <label>Alimentos </label><input type="checkbox" value="alimentos" id="categoria9">
+                </div>
 
-
-
-    <section class="full-wh full-h-to-auto first-section">
-      <div class="container">
-        <div class="row">
-          <div class="col search-form">
-            <h1 class="principal">BUSCA TU CHUCHE</h1>
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Busca tu chuche" aria-label="Search">
-              <br>
-              <br><br>
-              <br><br>
-              <br>
-              <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button> -->
-            </form>
+                <button onclick="printTok()" type="button" name="button"> revisar token</button>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button onclick="createProduct()" type="button" data-dismiss="modal" class="btn btn-primary">Crear producto</button>
           </div>
         </div>
       </div>
-      <div id="container-products" class="container container-products">
-        
+    </div>
+
+    <!-- Modal create product -->
+    <div class="modal fade" id="openMenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Panel de administrador</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div id="createProductContainer" class="modal-body">
+            <button data-dismiss="modal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+              Iniciar sesión
+            </button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
       </div>
-    </section>
-
-
-
-    <!-- Footer -->
-    <footer class="page-footer font-small special-color-dark pt-4">
-
-      <!-- Footer Elements -->
-      <div class="container">
-
-        <!-- Social buttons -->
-        <ul class="list-unstyled list-inline text-center">
-          <li class="list-inline-item">
-            <a class="btn-floating btn-fb mx-1">
-              <i class="fab fa-facebook-f"> </i>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a class="btn-floating btn-tw mx-1">
-              <i class="fab fa-twitter"> </i>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a class="btn-floating btn-gplus mx-1">
-              <i class="fab fa-google-plus-g"> </i>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a class="btn-floating btn-li mx-1">
-              <i class="fab fa-linkedin-in"> </i>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a class="btn-floating btn-dribbble mx-1">
-              <i class="fab fa-dribbble"> </i>
-            </a>
-          </li>
-        </ul>
-        <!-- Social buttons -->
-
+    </div>
+    <!-- Modal create session -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" onclick="loginOnClick()" data-dismiss="modal" class="btn btn-primary">Entrar</button>
+          </div>
+        </div>
       </div>
-      <!-- Footer Elements -->
+    </div>
+    <!-- Modal create product -->
+    <div class="modal fade" id="buyInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h2>Condiciones de compra:</h2>
+            <ul>
+              <li>Se aceptan pago en bolívares a partir de 5$, tenemos cuentas Mercantil, Proncincialy pago móvil (a lo que marque monitor dolar).</li>
+              <li>Aceptamos pagos en dólares por Zelle y efectivo.</li>
+              <li>Aceptamos euros en efectivo.</li>
+              <li>Aceptamos monedas a partir de 1 (€ o $) en adelante.</li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-transparent">
+      <button class="navbar-toggler" type="button" data-toggle="modal" data-target="#openMenu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <img  src="img/logo.png" class="img-fluid logo-nav levitar" alt="">
+    </nav>
+  </div>
 
 
 
-    </footer>
-    <!-- Footer -->
+  <section class="full-wh full-h-to-auto first-section">
+    <div class="container">
+      <div class="row">
+        <div class="col search-form">
+          <h1 class="principal">BUSCA TU CHUCHE</h1>
+          <form class="form-inline my-2 my-lg-0">
+            <input onkeyup="filter();" id="search" class="form-control mr-sm-2" type="search" placeholder="Busca tu chuche" aria-label="Search">
+            <br>
+            <br><br>
+            <br><br>
+            <br>
+            <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button> -->
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="container-products" class="container container-products">
+
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer class="page-footer font-small special-color-dark pt-4">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+      <!-- Social buttons -->
+      <ul class="list-unstyled list-inline text-center">
+        <li class="list-inline-item">
+          <a class="btn-floating btn-fb mx-1">
+            <i class="fab fa-facebook-f"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-tw mx-1">
+            <i class="fab fa-twitter"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-gplus mx-1">
+            <i class="fab fa-google-plus-g"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-li mx-1">
+            <i class="fab fa-linkedin-in"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-dribbble mx-1">
+            <i class="fab fa-dribbble"> </i>
+          </a>
+        </li>
+      </ul>
+      <!-- Social buttons -->
+
+    </div>
+    <!-- Footer Elements -->
+
+
+
+  </footer>
+  <!-- Footer -->
 
 </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-      <script>
-        AOS.init();
-      </script>
-      <script type="text/javascript" src="js/index.js">
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script type="text/javascript" src="js/index.js">
 
-      </script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
-  </html>
+</script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

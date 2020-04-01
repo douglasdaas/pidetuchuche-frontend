@@ -1,16 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
 html {
-    overflow: scroll;
-    overflow-x: hidden;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 ::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
 }
 /* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
-    background: #FF0000;
+  background: #FF0000;
 }
 body{
   font-family: 'Montserrat', sans-serif;
@@ -66,22 +68,20 @@ h2{
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
   opacity: 0;
-  animation: revelar 1s ease-in-out 3s;
-  animation-fill-mode: forwards;
-  animation-delay: 2s;
+
 }
 
 h1{
   text-align: center;
   color: black;
   font-size: 50px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Anton', sans-serif;
   overflow: hidden;
 }
 
 .first-section h1 {
-    color: #f7c2cd;
-    text-shadow: 0px 0px 12px #f1c9d0;
+  color: #f7c2cd;
+  text-shadow: 0px 0px 12px #f1c9d0;
 }
 
 .container-products h1{
@@ -90,10 +90,7 @@ h1{
   font-size: 50px;
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
-  opacity: 0;
-  animation: revelar 1s ease-in-out 3s;
-  animation-fill-mode: forwards;
-  animation-delay: 2s;
+
 }
 .image-col{
   background-image: url('https://http2.mlstatic.com/nutella-de-350-gr-D_NQ_NP_911804-MLV30084040708_042019-F.jpg');
@@ -107,22 +104,19 @@ h1{
   font-size: 20px;
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
-  opacity: 0;
-  animation: revelar 1s ease-in-out 3s;
-  animation-fill-mode: forwards;
-  animation-delay: 2s;
+
 }
 .search-form {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .container-products{
-    margin-top: -190px;
-    margin-bottom: 40px;
+  margin-top: -190px;
+  margin-bottom: 40px;
 }
 
 .cards{
@@ -137,7 +131,7 @@ h1{
 }
 
 .second-container{
-background-color: red;
+  background-color: red;
 
 }
 
@@ -197,17 +191,14 @@ background-color: red;
 }
 
 .wrapper {
-    height: 320px;
-    width: auto;
-    border-radius: 7px 7px 7px 7px;
-    margin-bottom: 40px;
-    -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
-    opacity: 0;
-    animation: revelar 1s ease-in-out 3s;
-    animation-fill-mode: forwards;
-    animation-delay: 2s;
+  height: 320px;
+  width: auto;
+  border-radius: 7px 7px 7px 7px;
+  margin-bottom: 40px;
+  -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+
 }
 
 .product-img {
@@ -238,7 +229,7 @@ background-color: red;
 .product-text h1 {
   margin: 0 0 0 38px;
   padding-top: 20px;
-  font-size: 34px;
+
   color: #000000;
 }
 
@@ -295,24 +286,27 @@ span {
 }
 
 .product-data button {
-    display: inline-block;
-    height: 50px;
-    width: 176px;
-    box-sizing: border-box;
-    border: transparent;
-    border-radius: 60px;
-    font-family: 'Raleway', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: #ffffff;
-    background-color: #000000;
-    cursor: pointer;
-    outline: none;
+  display: inline-block;
+  height: 50px;
+  width: 176px;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  background-color: #000000;
+  cursor: pointer;
+  outline: none;
 }
 
-
+.modal-body{
+  display: flex;
+  flex-direction: column;
+}
 
 @media (max-width:992px) {
   .logo-prox{

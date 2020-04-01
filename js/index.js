@@ -53,7 +53,7 @@ function getProducts() {
         console.log(products);
         for (let i = 0; i < products.datos.length; i++) {
           let div = document.createElement('div')
-          div.innerHTML = '<div class="wrapper cards"> <div class="row"> <div class="product-info col"><div class="product-text"><h1>' + products.datos[i].nombre + '</h1><h2>' + products.datos[i].categorias + '</h2><h3>Precio: ' + products.datos[i].precio  + '$</h3><h4>Stock: ' + products.datos[i].cantidad + '</h4><p>' + products.datos[i].descripcion + '</p><div class="product-data"><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button></div></div></div><div class="product-img col"><img id="productImage" style="background-image: url(' + products.datos[i].ruta_imagen +  ');background-size: cover;background-position: center;height: 320px;" class="img-fluid img-container"></div></div></div>';
+          div.innerHTML = '<div class="wrapper cards"> <div class="row"> <div class="product-info col"><div class="product-text"><h1>' + products.datos[i].nombre + '</h1><h2>' + products.datos[i].categorias + '</h2><h3>Precio: ' + products.datos[i].precio_total  + '$</h3><h4>Stock: ' + products.datos[i].cantidad + '</h4><p>' + products.datos[i].descripcion + '</p><div class="product-data"><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button></div></div></div><div class="product-img col"><img id="productImage" style="background-image: url(' + products.datos[i].ruta_imagen +  ');background-size: cover;background-position: center;height: 320px;" class="img-fluid img-container"></div></div></div>';
           pContainer.appendChild(div);
         }
       }

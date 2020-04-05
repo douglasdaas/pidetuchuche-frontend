@@ -1,22 +1,19 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;900&display=swap');
+
 html {
   overflow: scroll;
   overflow-x: hidden;
 }
 ::-webkit-scrollbar {
-  width: 0px;  /* Remove scrollbar space */
+  width: 10px;  /* Remove scrollbar space */
   background: transparent;  /* Optional: just make scrollbar invisible */
 }
 /* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
-  background: #FF0000;
+  background: #e5b1ac;
 }
 body{
-  font-family: 'Montserrat', sans-serif;
-
+  font-family: 'Roboto', sans-serif;
 }
 .navbar-transparent{
   background-color: transparent;
@@ -32,15 +29,7 @@ nav i{
   color: #ffffff
 }
 
-.background-prox{
-  background: radial-gradient(circle, rgb(255, 215, 236) 0%, rgba(255,177,193,1) 100%);
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+
 .center{
   width: 100vw;
   height: 100vh;
@@ -65,22 +54,21 @@ h2{
   text-align: center;
   color: black;
   font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
   overflow: hidden;
-  opacity: 0;
 
 }
 
 h1{
   text-align: center;
   color: black;
-  font-size: 50px;
+  font-size: 160px;
   font-family: 'Anton', sans-serif;
   overflow: hidden;
 }
 
 .first-section h1 {
-  color: #f7c2cd;
+  color: #fff;
   text-shadow: 0px 0px 12px #f1c9d0;
 }
 
@@ -88,7 +76,7 @@ h1{
   text-align: left;
   color: black;
   font-size: 50px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Anton', sans-serif;
   overflow: hidden;
 
 }
@@ -102,33 +90,48 @@ h1{
   text-align: left;
   color: black;
   font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
   overflow: hidden;
 
 }
 .search-form {
-  height: 100vh;
+  height: auto;
+  width: 100vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 30px;
   align-items: center;
-  flex-direction: column;
+  background-color: #000000;
+}
+
+.search-form h1{
+  text-align: center;
+  color: #fff;
+  font-size: 100px;
+  font-family: 'Anton', sans-serif;
+  overflow: hidden;
 }
 
 .container-products{
-  margin-top: -190px;
+
   margin-bottom: 40px;
 }
 
-.cards{
-  background-color: #f7c4d0;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0px 0px rgba(0,0,0,0.12), 5 0px 0px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+.search{
+  color: white;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ced4da;
 }
-.cards:hover {
-  box-shadow: 0 14px 28px rgb(240, 205, 214), 0 10px 10px rgb(240, 205, 214);
+
+.search:focus{
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  box-shadow: none
 }
+
 
 .second-container{
   background-color: red;
@@ -140,7 +143,7 @@ h1{
 }
 
 .first-section{
-  background: radial-gradient(circle, #4a4a4a 0%, #000000 100%);
+  background: radial-gradient(circle, #ecaba8 0%, #ecaba8 100%);
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -162,10 +165,9 @@ h1{
 }
 
 .second-section{
-  background-color: #0070ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: black;
+  padding: 50px;
+  width: 100vw
 }
 
 .third-section{
@@ -191,31 +193,36 @@ h1{
 }
 
 .wrapper {
-  height: 320px;
+  background: #fff;
+  height: auto;
   width: auto;
   border-radius: 7px 7px 7px 7px;
   margin-bottom: 40px;
   -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
 
+.wrapper:hover {
+  box-shadow: 0 -4px 12px rgb(240, 205, 214), 0 5px 15px rgb(240, 205, 214);
 }
 
 .product-img {
   float: left;
-  height: 320px;
+  height: auto;
   width: auto;
   overflow: hidden;
 }
 
 .product-img img {
-  border-radius: 7px 7px 7px 7px;
+  border-radius: 0px 7px 7px 0px;
 }
 
 
 .product-info {
   float: left;
-  height: 320px;
+  height: auto;
   width: 507px;
   border-radius: 0 7px 10px 7px;
 
@@ -223,13 +230,12 @@ h1{
 
 .product-text {
   height: auto;
-  width: 427px;
+  width: auto
 }
 
 .product-text h1 {
   margin: 0 0 0 38px;
   padding-top: 20px;
-
   color: #000000;
 }
 
@@ -238,7 +244,7 @@ h1{
 .product-text h2 {
   margin: 0 0 0px 38px;
   font-size: 13px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
   color: #000000;
@@ -262,13 +268,14 @@ h1{
 .product-text p {
   height: auto;
   margin: 15px 0 0 38px;
-  font-family: 'Montserrat', serif;
+  font-family: 'Roboto', serif;
   color: #8d8d8d;
   line-height: 1.7em;
   font-size: 15px;
   font-weight: lighter;
   overflow: hidden;
   color: #000000;
+  word-wrap: break-word;
 }
 
 
@@ -276,7 +283,7 @@ h1{
 span {
   display: inline-block;
   height: 50px;
-  font-family: 'Montserrat', serif;
+  font-family: 'Roboto', serif;
   font-size: 34px;
 }
 
@@ -298,9 +305,10 @@ span {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: #ffffff;
-  background-color: #000000;
+  background: linear-gradient(0deg, rgba(70,70,70,1) 0%, rgba(0,0,0,1) 100%);
   cursor: pointer;
   outline: none;
+  margin-bottom: 30px;
 }
 
 .modal-body{
@@ -308,19 +316,192 @@ span {
   flex-direction: column;
 }
 
+.welcome-header {
+
+  display: flex;
+  justify-content: flex-end;
+  height: 100vh;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.welcome-header h2 {
+  font-size: 28px;
+  font-family: 'Anton', sans-serif;
+  color: #fff;
+  text-shadow: 0px 0px 12px #f1c9d0;
+}
+
+.btn-primary {
+  color: #fff;
+
+  background-color: #e5b1ac;
+  border-color: #e5b1ac;
+}
+
+.category-filter {
+  display: flex;
+  width: 100vw;
+  padding: 30px 60px 30px 60px;
+  justify-content: space-between;
+}
+
+.category-filter h2 {
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  font-family: 'Anton', sans-serif;
+  overflow: hidden;
+}
+.category-filter button {
+  display: inline-block;
+  height: 30px;
+  width: 100px;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  background: linear-gradient(0deg, rgba(70,70,70,1) 0%, rgba(0,0,0,1) 100%);
+  cursor: pointer;
+  outline: none;
+
+}
+
+
+
 @media (max-width:992px) {
+
   .logo-prox{
     width:300px;
-
   }
-
+  .category-filter {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100vw;
+    padding: 30px 60px 0px 60px;
+    justify-content: space-between;
+  }
+  .category-filter button {
+    display: inline-block;
+    height: 54px;
+    width: 100%;
+    box-sizing: border-box;
+    border: transparent;
+    border-radius: 60px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #ffffff;
+    background: linear-gradient(0deg, rgba(70,70,70,1) 0%, rgba(0,0,0,1) 100%);
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 30px;
+  }
   h2{
     font-size: 44px
+  }
+  h1 {
+    text-align: center;
+    color: black;
+    font-size: 140px;
+    font-family: 'Anton', sans-serif;
+    overflow: hidden;
+  }
+  .welcome-header h2 {
+    font-size: 80px;
+    font-family: 'Anton', sans-serif;
+    color: #fff;
+    text-shadow: 0px 0px 12px #f1c9d0;
   }
   .full-h-to-auto{
     height: auto;
   }
+  .container-products h1 {
+    text-align: left;
+    color: black;
+    font-size: 70px;
+    font-family: 'Anton', sans-serif;
+    overflow: hidden;
+  }
+  .product-text h2 {
+    margin: 0 0 0px 38px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #000000;
+    letter-spacing: 0.2em;
+  }
+  .product-text h3 {
+    margin: 0 0 0 38px;
+    padding-top: 10px;
+    font-size: 34px;
+    color: #000000;
+  }
+  .product-text h4 {
+    margin: 0 0 0 38px;
+    font-size: 28px;
+    color: #000000;
+  }
 
+  .product-text p {
+    height: auto;
+    margin: 0px 0 0 38px;
+    font-family: 'Roboto', serif;
+    color: #8d8d8d;
+    line-height: 1.7em;
+    font-size: 23px;
+    font-weight: lighter;
+    overflow: hidden;
+    color: #000000;
+    word-wrap: break-word;
+  }
+  .search-form {
+    height: auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    align-items: center;
+    background-color: #000000;
+  }
+  .search {
+    color: white;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #e5b1ac;
+    width: 400px;
+    margin-top: 30px;
+  }
+  .btn-primary {
+    color: #fff;
+    background-color: #e5b1ac;
+    border-color: #e5b1ac;
+    font-size: 34px;
+  }
+  .modal-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-size: 30px;
+  }
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    font-size: 28px;
+  }
+  .modal-dialog {
+    max-width: 700px;
+    margin: 1.75rem auto;
+  }
 }
 
 @keyframes revelar {

@@ -144,7 +144,7 @@ function getProducts() {
         console.log(products);
         for (let i = 0; i < products.datos.length; i++) {
           let div = document.createElement('div')
-          div.innerHTML = '<div data-aos="flip-up" class="wrapper cards"><div class="row"> <div class="product-info col"><div class="product-text"><h1>' + products.datos[i].nombre + '</h1><h2>' + products.datos[i].categorias[0].nombre+ '</h2><h3>Precio: ' + products.datos[i].precio  + '$</h3><h4>Stock: ' + products.datos[i].cantidad + '</h4><p>' + products.datos[i].descripcion + '</p><div class="product-data"><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none" onclick=(fillUpdate('+products.datos[i].id+')) data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" onclick=(deleteProduct('+products.datos[i].id+')) type="button" name="button">borrar</button></div></div></div><div class="product-img col"><img class="img-fluid" id="productImage" style="background-image: url(' + products.datos[i].ruta_imagen +  ');background-size: cover;background-position: center;height:100%;" class="img-fluid img-container"></div></div></div>';
+          div.innerHTML = '<div data-aos="flip-up" class="wrapper cards"><div class="row"> <div class="product-info col"><div class="product-text"><h1>' + products.datos[i].nombre + '</h1><h3>Precio: ' + products.datos[i].precio  + '$</h3><h4>Stock: ' + products.datos[i].cantidad + '</h4><p>' + products.datos[i].descripcion + '</p><div class="product-data"><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none" onclick=(fillUpdate('+products.datos[i].id+')) data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" onclick=(deleteProduct('+products.datos[i].id+')) type="button" name="button">borrar</button></div></div></div><div class="product-img col"><img class="img-fluid" id="productImage" style="background-image: url(' + products.datos[i].ruta_imagen +  ');background-size: cover;background-position: center;height:100%;" class="img-fluid img-container"></div></div></div>';
           pContainer.appendChild(div);
         }
       }
@@ -242,6 +242,21 @@ function fillUpdate(productID) {
         inputV4.value = products.datos.prioridad;
         inputV5.value = products.datos.precio;
         inputV6.value = products.datos.descuento;
+        if (products.datos.categorias.length > 0){
+          for (var i=0; i <= products.datos.categorias.length-1; i++) {
+            for (var j=0; j <= 9; j++) {
+              if (products.datos.categorias[i].nombre === document.getElementById(`categoriaV${j}`).value ){
+                console.log(products.datos.categorias[i].nombre );
+                console.log(document.getElementById(`categoriaV${j}`).value);
+                document.getElementById(`categoriaV${j}`).setAttribute('checked', true);
+              }
+            }
+          }
+        } else {
+          for (var k=0; k <= 9; k++) {
+            document.getElementById(`categoriaV${k}`).checked = false;
+          }
+        }
         productIDactual = products.datos.id;
       }
     }
@@ -298,6 +313,8 @@ function editProduct() {
   req.send(productData);
   alert('Producto modificado');
 
+  getProducts();
+
 }
 
 
@@ -316,6 +333,8 @@ function createProduct() {
   let product_category = [];
   for (var i=0; i <= 9; i++) {
     if (document.getElementById(`categoria${[i]}`).checked === true){
+      console.log( document.getElementById(`categoria${[i]}`).checked)
+      console.log( document.getElementById(`categoria${[i]}`).value)
       product_category.push(document.getElementById(`categoria${[i]}`).value)
     }
   }
@@ -348,6 +367,8 @@ function createProduct() {
   console.log('productData:: ',productData);
   req.send(productData);
   alert('Producto creado');
+
+  getProducts();
 
 }
 

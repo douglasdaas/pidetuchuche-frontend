@@ -22,6 +22,7 @@ const url = 'https://pidetuchuche-backend.herokuapp.com';
 const req = new XMLHttpRequest();
 
 
+
 let scroll = document.getElementById('scrollButton');
 
 
@@ -135,6 +136,11 @@ chicles.addEventListener("click", function() {
 
 //GET ALL
 function getProducts() {
+  let token = sessionStorage.getItem('authToken');
+  let deleted = document.getElementsByClassName('buttonDelete')
+  let updated = document.getElementsByClassName('buttonUpdate')
+
+  pContainer.innerHTML = '';
   req.open('GET', url + '/productos', true);
   req.onreadystatechange = function () {
     if(req.readyState === XMLHttpRequest.DONE) {
@@ -146,6 +152,12 @@ function getProducts() {
           let div = document.createElement('div')
           div.innerHTML = '<div data-aos="flip-up" class="wrapper cards"><div class="row"> <div class="product-info col"><div class="product-text"><h1>' + products.datos[i].nombre + '</h1><h3>Precio: ' + products.datos[i].precio  + '$</h3><h4>Stock: ' + products.datos[i].cantidad + '</h4><p>' + products.datos[i].descripcion + '</p><div class="product-data"><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none" onclick=(fillUpdate('+products.datos[i].id+')) data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" onclick=(deleteProduct('+products.datos[i].id+')) type="button" name="button">borrar</button></div></div></div><div class="product-img col"><img class="img-fluid" id="productImage" style="background-image: url(' + products.datos[i].ruta_imagen +  ');background-size: cover;background-position: center;height:100%;" class="img-fluid img-container"></div></div></div>';
           pContainer.appendChild(div);
+          if ((token) && (token !== undefined)){
+            for (let i = 0; i < deleted.length; i++) {
+              deleted[i].style.display = "";
+              updated[i].style.display = "";
+            }
+          }
         }
       }
     }
@@ -158,7 +170,7 @@ function deleteProduct(id) {
   let opcion = confirm("Clicka en Aceptar o Cancelar");
 
   if (opcion == true) {
-    let token = localStorage.getItem('authToken');
+    let token = sessionStorage.getItem('authToken');
     let tokenCapitalized = token.charAt(0).toUpperCase() + token.substring(1);
     req.open("DELETE", url + '/productos/' + id, true);
     req.setRequestHeader("Content-type", "application/json");
@@ -167,6 +179,7 @@ function deleteProduct(id) {
       if (req.readyState === 4 && req.status === 200 ) {
         session = JSON.parse(this.responseText);
         alert('Producto eliminado');
+        getProducts()
       }else if (req.status === 400) {
         alert('Teequivocaste');
       }
@@ -175,7 +188,6 @@ function deleteProduct(id) {
   } else {
     alert('Teequivocaste');
   }
-
 }
 
 
@@ -212,7 +224,7 @@ window.onload = function() {
 
 
 function printTok() {
-  let token = localStorage.getItem('authToken')
+  let token = sessionStorage.getItem('authToken')
   let tokenCapitalized = token.charAt(0).toUpperCase() + token.substring(1);
   console.log(token);
   console.log(tokenCapitalized);
@@ -267,7 +279,7 @@ function fillUpdate(productID) {
 
 
 function editProduct() {
-  let token = localStorage.getItem('authToken');
+  let token = sessionStorage.getItem('authToken');
   let tokenCapitalized = token.charAt(0).toUpperCase() + token.substring(1);
   let product_name = document.getElementById('inputV1').value;
   let product_img = document.getElementById('inputVIMG');
@@ -320,7 +332,7 @@ function editProduct() {
 
 
 function createProduct() {
-  let token = localStorage.getItem('authToken');
+  let token = sessionStorage.getItem('authToken');
   let tokenCapitalized = token.charAt(0).toUpperCase() + token.substring(1);
   let product_name = document.getElementById('product_name').value;
   let product_img = document.getElementById('product_img');
@@ -394,7 +406,7 @@ function loginOnClick() {
         session = JSON.parse(this.responseText);
         let sessionToken = session.data;
         let authToken = sessionToken.type + ' ' + sessionToken.token;
-        localStorage.setItem('authToken', authToken );
+        sessionStorage.setItem('authToken', authToken);
         createProductContainer.innerHTML = '<button data-dismiss="modal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#createProduct">Crear producto</button>'
 
         for (let i = 0; i < deleted.length; i++) {

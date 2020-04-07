@@ -137,7 +137,6 @@
               <table class="table table-responsive">
                 <thead>
                   <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">Producto</th>
                     <th scope="col">Cantidad</th>
                     <th scope="col">Venta</th>
@@ -324,7 +323,7 @@
           <div class="modal-body">
             <h2>Pasos para la compra:</h2>
             <ul>
-              <li>Cuando tengas tu pedido escribe al 04140114333 (Link WhatsApp: https://bit.ly/2UNVCYA)</li>
+              <li>Cuando tengas tu pedido escribe al 04140114333 (Link WhatsApp: <a href="https://bit.ly/2UNVCYA">https://bit.ly/2UNVCYA</a>)</li>
               <li>Se aceptan pago en bolívares a partir de 5$, tenemos cuentas Mercantil, Proncincial y pago móvil (a lo que indique monitor dolar).</li>
               <li>Aceptamos pagos en dólares por Zelle y efectivo.</li>
               <li>Aceptamos euros en efectivo.</li>
@@ -357,7 +356,7 @@
     <div class="search-form">
       <h1>Nuestro Catálogo</h1>
       <form class="form-inline my-2 my-lg-0">
-        <input onkeyup="filter();" id="search" class=" search" type="search" placeholder="Busca tu chuche" aria-label="Search">
+        <input onkeypress="return event.keyCode != 13" onkeyup="filter();" id="search1" class="form-control" type="text" placeholder="Busca tu chuche" >
       </form>
     </div>
     <div class="category-filter">
@@ -378,9 +377,6 @@
       </div>
       <div>
         <button id="papitas" type='button'>Papitas</button>
-      </div>
-      <div>
-        <button id="ramen" type='button'>Ramen</button>
       </div>
       <div>
         <button id="galletas" type='button'>Galletas</button>

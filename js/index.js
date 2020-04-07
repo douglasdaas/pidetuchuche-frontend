@@ -318,14 +318,20 @@ function editProduct() {
 
   req.open("PATCH", url + '/productos/' + productIDactual, true);
   req.setRequestHeader("Authorization", tokenCapitalized);
-
+  req.onreadystatechange = function () {
+    if(req.readyState === 4 && req.status === 200 ) {
+      console.log(req.status)
+      alert('Producto modificado');
+      getProducts()
+    } else if (req.status === 500){
+      alert('Error')
+    }
+  }
 
   console.log('productoJSON:: ',productoJSON);
   console.log('productData:: ',productData);
   req.send(productData);
-  alert('Producto modificado');
 
-  getProducts();
 
 }
 
@@ -343,19 +349,18 @@ function createProduct() {
   let product_discount = document.getElementById('product_discount').value;
 
   let product_category = [];
-  for (var i=0; i <= 9; i++) {
-    if (document.getElementById(`categoria${[i]}`).checked === true){
-      console.log( document.getElementById(`categoria${[i]}`).checked)
-      console.log( document.getElementById(`categoria${[i]}`).value)
+  for (var i = 0; i <= 9; i++) {
+    if (document.getElementById(`categoria${[i]}`).checked === true) {
+      console.log(document.getElementById(`categoria${[i]}`).checked)
+      console.log(document.getElementById(`categoria${[i]}`).value)
       product_category.push(document.getElementById(`categoria${[i]}`).value)
     }
   }
 
 
-
   const productData = new FormData();
 
-  if (product_img.files[0] !== undefined){
+  if (product_img.files[0] !== undefined) {
     productData.append("imagen", product_img.files[0]);
   }
   productData.append("nombre", product_name);
@@ -364,23 +369,30 @@ function createProduct() {
   productData.append("prioridad", product_priority);
   productData.append("precio", product_price);
   productData.append("descuento", product_discount);
-  if (product_category.length>0) {
-    productData.append("categorias",JSON.stringify(product_category));
-  };
+  if (product_category.length > 0) {
+    productData.append("categorias", JSON.stringify(product_category));
+  }
+  ;
   let producto = {};
-  productData.forEach((value, key) => {producto[key] = value});
-  let productoJSON = JSON.stringify(producto,2,2);
+  productData.forEach((value, key) => {
+    producto[key] = value
+  });
+  let productoJSON = JSON.stringify(producto, 2, 2);
 
   req.open("POST", url + '/productos', true);
   req.setRequestHeader("Authorization", tokenCapitalized);
-
-
-  console.log('productoJSON:: ',productoJSON);
-  console.log('productData:: ',productData);
+  req.onreadystatechange = function () {
+    if(req.readyState === 4 && req.status === 201 ) {
+      console.log(req.status)
+      alert('Producto creado');
+      getProducts()
+    } else if (req.status === 500){
+      alert('Error')
+    }
+  }
+  console.log('productoJSON:: ', productoJSON);
+  console.log('productData:: ', productData);
   req.send(productData);
-  alert('Producto creado');
-
-  getProducts();
 
 }
 

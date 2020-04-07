@@ -68,8 +68,8 @@ h1{
 }
 
 .first-section h1 {
-  color: #fff;
-  text-shadow: 0px 0px 12px #f1c9d0;
+    color: #000;
+    text-shadow: 0px 0px 12px #f1c9d0;
 }
 
 .container-products h1{
@@ -117,16 +117,17 @@ h1{
   margin-bottom: 40px;
 }
 
-.search{
-  color: white;
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #ced4da;
+
+.search {
+    color: #000000;
+    background-color: #ecaba8;
+    border: 5px;
+    border-bottom: 1px solid #e5b1ac;
 }
 
 .search:focus{
-  color: #fff;
-  background-color: transparent;
+  color: black;
+  background-color: white;
   border: none;
   border-bottom: 1px solid #ffffff;
   box-shadow: none
@@ -251,11 +252,12 @@ h1{
   letter-spacing: 0.2em;
 }
 
+
 .product-text h3 {
-  margin: 0 0 0 38px;
-  padding-top: 10px;
-  font-size: 24px;
-  color: #000000;
+    margin: 0 0 0 38px;
+    padding-top: 10px;
+    font-size: 34px;
+    color: #000000;
 }
 
 .product-text h4 {
@@ -266,18 +268,17 @@ h1{
 }
 
 .product-text p {
-  height: auto;
-  margin: 15px 0 0 38px;
-  font-family: 'Roboto', serif;
-  color: #8d8d8d;
-  line-height: 1.7em;
-  font-size: 15px;
-  font-weight: lighter;
-  overflow: hidden;
-  color: #000000;
-  word-wrap: break-word;
+    height: auto;
+    margin: 15px 0 0 38px;
+    font-family: 'Roboto', serif;
+    color: #8d8d8d;
+    line-height: 1.7em;
+    font-size: 23px;
+    font-weight: lighter;
+    overflow: hidden;
+    color: #000000;
+    word-wrap: break-word;
 }
-
 
 
 span {
@@ -379,6 +380,34 @@ span {
   .logo-prox{
     width:300px;
   }
+  .logo-nav {
+    width: 400px;
+    position: absolute;
+    left: 57vw;
+    top: 26px;
+    margin-bottom: 40px;
+    animation: do-levitation 1.2s alternate ease-in-out infinite;
+}
+.iIcon {
+    font-size: 70px;
+}
+.welcome-header {
+    display: flex;
+    justify-content: flex-end;
+    height: 85vh;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.navbar-transparent {
+    background-color: transparent;
+    width: 100vw;
+    position: absolute;
+    z-index: 2;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+}
+
   .category-filter {
     display: flex;
     flex-direction: column;

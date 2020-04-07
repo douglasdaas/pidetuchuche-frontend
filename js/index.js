@@ -6,6 +6,7 @@ let resultado = document.getElementById('container-product');
 let sel = document.getElementById('product_category')
 let sel1 = document.getElementById('product_category1')
 let pContainer = document.getElementById('container-products');
+let sellContainer = document.getElementById('bodySell')
 let createProductContainer = document.getElementById('createProductContainer');
 let alimentos = document.getElementById('alimentos')
 let bebidas = document.getElementById('bebidas')
@@ -150,8 +151,11 @@ function getProducts() {
         console.log(products);
         for (let i = 0; i < products.datos.length; i++) {
           let div = document.createElement('div')
+          let tr = document.createElement('tr');
+          tr.innerHTML = '<th scope="row">'+products.datos[i].id+'</th><td>' + products.datos[i].nombre + '</td><td>' + products.datos[i].cantidad + '</td><td><input class="form-control" type="number" name="" value=""></td><td><button onclick="sellProduct()" type="button" data-dismiss="modal" class="btn btn-primary">Vender</button></td>'
           div.innerHTML = '<div data-aos="flip-up" class="wrapper cards"><div class="row"> <div class="product-info col"><div class="product-text"><h1>' + products.datos[i].nombre + '</h1><h2>' + products.datos[i].categorias[0].nombre+ '</h2><h3>Precio: ' + products.datos[i].precio  + '$</h3><h4>Stock: ' + products.datos[i].cantidad + '</h4><p>' + products.datos[i].descripcion + '</p><div class="product-data"><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none" onclick=(fillUpdate('+products.datos[i].id+')) data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" onclick=(deleteProduct('+products.datos[i].id+')) type="button" name="button">borrar</button></div></div></div><div class="product-img col"><img class="img-fluid" id="productImage" style="background-image: url(' + products.datos[i].ruta_imagen +  ');background-size: cover;background-position: center;height:100%;" class="img-fluid img-container"></div></div></div>';
           pContainer.appendChild(div);
+          sellContainer.appendChild(tr);
           if ((token) && (token !== undefined)){
             for (let i = 0; i < deleted.length; i++) {
               deleted[i].style.display = "";
@@ -419,7 +423,7 @@ function loginOnClick() {
         let sessionToken = session.data;
         let authToken = sessionToken.type + ' ' + sessionToken.token;
         sessionStorage.setItem('authToken', authToken);
-        createProductContainer.innerHTML = '<button data-dismiss="modal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#createProduct">Crear producto</button>'
+        createProductContainer.innerHTML = '<button data-dismiss="modal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#sellProduct">Ventas</button><br><button data-dismiss="modal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#createProduct">Crear producto</button>'
 
         for (let i = 0; i < deleted.length; i++) {
           deleted[i].style.display = "";

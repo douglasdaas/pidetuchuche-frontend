@@ -128,6 +128,41 @@
         </div>
       </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="sellProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="container">
+              <table class="table table-responsive">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Venta</th>
+                    <th scope="col">Confirmar</th>
+                  </tr>
+                </thead>
+                <tbody id="bodySell">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td><input class="form-control" type="number" name="" value=""></td>
+                    <td><button onclick="sellProduct()" type="button" data-dismiss="modal" class="btn btn-primary">Vender</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button onclick="createProduct()" type="button" data-dismiss="modal" class="btn btn-primary">Crear producto</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Modal edit -->
     <div class="modal fade" id="editProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">

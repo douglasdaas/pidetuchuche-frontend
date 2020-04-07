@@ -266,6 +266,9 @@ h1{
   font-size: 18px;
   color: #000000;
 }
+.modal {
+  overflow-y:auto !important;
+}
 
 .product-text p {
     height: auto;

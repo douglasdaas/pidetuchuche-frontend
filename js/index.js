@@ -35,7 +35,7 @@ function scrollHeight() {
 //filter
 function filter() {
   let searchInput = document.getElementById('search1');
-  console.log('Se esta buscando:: ', searchInput)
+  console.log('Se esta buscando:: ', searchInput.value)
   let filterValue = searchInput.value.toUpperCase();
   let productList = document.getElementById('container-products');
   let element = productList.getElementsByClassName('wrapper')

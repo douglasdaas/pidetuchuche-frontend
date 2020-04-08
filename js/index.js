@@ -1,4 +1,4 @@
-console.log('hola');
+console.log('Pidetuchuche.com!');
 
 
 
@@ -34,16 +34,14 @@ function scrollHeight() {
 
 //filter
 function filter() {
-  console.log('epaoeoe');
   let searchInput = document.getElementById('search1');
+  console.log('Se esta buscando:: ', searchInput)
   let filterValue = searchInput.value.toUpperCase();
   let productList = document.getElementById('container-products');
   let element = productList.getElementsByClassName('wrapper')
-  console.log(element);
   for (let i = 0; i < element.length; i++) {
     let a = element[i].getElementsByTagName('h1')[0];
     if (a.innerHTML.toUpperCase().indexOf(filterValue) > -1 ) {
-      console.log(a.innerHTML.toUpperCase().indexOf(filterValue));
       element[i].style.display = "";
       AOS.refresh();
     }else {
@@ -70,9 +68,7 @@ function filterTag(id) {
         let productsArray = products.datos
         for (let i = 0; i < productsArray.length; i++) {
           let nombreP = productsArray[i].categorias[0].nombre
-          console.log();
           if (nombreP.toUpperCase() === id.toUpperCase()) {
-            console.log(nombreP.toUpperCase());
             element[i].style.display = "";
             AOS.refresh();
           }else {
@@ -146,16 +142,21 @@ function getProducts() {
       let status = req.status;
       if (status === 0 || (200 >= status && status < 400)) {
         let products = JSON.parse(this.responseText);
-        console.log(products);
+        console.log('Productos Obtenidos:: ',products);
         for (let i = 0; i < products.datos.length; i++) {
           let div = document.createElement('div')
           let tr = document.createElement('tr');
           tr.innerHTML = '<th scope="row">'+products.datos[i].nombre+'</th><td>' + products.datos[i].cantidad + '</td><td><input id="sellQuantity'+products.datos[i].id+'" class="form-control" type="number" name="" value=""></td><td><button onclick="sellProduct('+products.datos[i].id+')" type="button" class="btn btn-primary">Vender</button></td>'
-          div.innerHTML = '<div data-aos="flip-up" class="wrapper cards"><div class="row"> <div class="product-info col"><div class="product-text"><h1>' + products.datos[i].nombre + '</h1><h2>' + products.datos[i].categorias[0].nombre+ '</h2><h3>Precio: ' + products.datos[i].precio  + '$</h3><h4>Stock: ' + products.datos[i].cantidad + '</h4><p>' + products.datos[i].descripcion + '</p><div class="product-data"><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none" onclick=(fillUpdate('+products.datos[i].id+')) data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" onclick=(deleteProduct('+products.datos[i].id+')) type="button" name="button">borrar</button></div></div></div><div class="product-img col"><img class="img-fluid" id="productImage" style="background-image: url(' + products.datos[i].ruta_imagen +  ');background-size: cover;background-position: center;height:100%;" class="img-fluid img-container"></div></div></div>';
+          if (products.datos[i].categorias.length > 0){
+            div.innerHTML = '<div data-aos="flip-up" class="wrapper cards"><div class="row"> <div class="product-info col"><div class="product-text"><h1>' + products.datos[i].nombre + '</h1><h2>' + products.datos[i].categorias[0].nombre+ '</h2><h3>Precio: ' + products.datos[i].precio  + '$</h3><h4>Stock: ' + products.datos[i].cantidad + '</h4><p>' + products.datos[i].descripcion + '</p><div class="product-data"><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none" onclick=(fillUpdate('+products.datos[i].id+')) data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" onclick=(deleteProduct('+products.datos[i].id+')) type="button" name="button">borrar</button></div></div></div><div class="product-img col"><img class="img-fluid" id="productImage" style="background-image: url(' + products.datos[i].ruta_imagen +  ');background-size: cover;background-position: center;height:100%;" class="img-fluid img-container"></div></div></div>';
+          } else {
+            div.innerHTML = '<div data-aos="flip-up" class="wrapper cards"><div class="row"> <div class="product-info col"><div class="product-text"><h1>' + products.datos[i].nombre + '</h1><h3>Precio: ' + products.datos[i].precio  + '$</h3><h4>Stock: ' + products.datos[i].cantidad + '</h4><p>' + products.datos[i].descripcion + '</p><div class="product-data"><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none" onclick=(fillUpdate('+products.datos[i].id+')) data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" onclick=(deleteProduct('+products.datos[i].id+')) type="button" name="button">borrar</button></div></div></div><div class="product-img col"><img class="img-fluid" id="productImage" style="background-image: url(' + products.datos[i].ruta_imagen +  ');background-size: cover;background-position: center;height:100%;" class="img-fluid img-container"></div></div></div>';
+
+          }
           pContainer.appendChild(div);
           sellContainer.appendChild(tr);
           if ((token) && (token !== undefined)){
-            for (let i = 0; i < deleted.length; i++) {
+            for (let j = 0; j < deleted.length; j++) {
               deleted[i].style.display = "";
               updated[i].style.display = "";
             }
@@ -198,11 +199,10 @@ function getCategorias() {
   req.open('GET', url + '/categorias', true);
   req.onreadystatechange = function () {
     if(req.readyState === XMLHttpRequest.DONE) {
-      console.log('done');
       let status = req.status;
       if (status === 0 || (200 >= status && status < 400)) {
         let categories = JSON.parse(this.responseText);
-        console.log(categories);
+        console.log('Categorias Obtenidas ::',categories);
         for (let i = 0; i < categories.datos.length; i++) {
           let opt = document.createElement('option');
           opt.innerHTML = categories.datos[i].nombre;
@@ -225,23 +225,14 @@ window.onload = function() {
 };
 
 
-function printTok() {
-  let token = sessionStorage.getItem('authToken')
-  let tokenCapitalized = token.charAt(0).toUpperCase() + token.substring(1);
-  console.log(token);
-  console.log(tokenCapitalized);
-  console.log('hola');
-}
-
 function fillUpdate(productID) {
-  console.log('hola');
   let inputV1 = document.getElementById('inputV1');
   let inputV2 = document.getElementById('inputV2');
   let inputV3 = document.getElementById('inputV3');
   let inputV4 = document.getElementById('inputV4');
   let inputV5 = document.getElementById('inputV5');
   let inputV6 = document.getElementById('inputV6');
-  console.log(productID);
+  console.log('id de producto a actualizar:: ', productID);
 
   req.open('GET', url + '/productos/' + productID, true);
   req.onreadystatechange = function () {
@@ -249,7 +240,6 @@ function fillUpdate(productID) {
       let status = req.status;
       if (status === 0 || (200 >= status && status < 400)) {
         let products = JSON.parse(this.responseText);
-        console.log(products);
         inputV1.value = products.datos.nombre;
         inputV2.value = products.datos.descripcion;
         inputV3.value = products.datos.cantidad;
@@ -258,16 +248,14 @@ function fillUpdate(productID) {
         inputV6.value = products.datos.descuento;
         if (products.datos.categorias.length > 0){
           for (var i=0; i <= products.datos.categorias.length-1; i++) {
-            for (var j=0; j <= 9; j++) {
+            for (var j=0; j <= 8; j++) {
               if (products.datos.categorias[i].nombre === document.getElementById(`categoriaV${j}`).value ){
-                console.log(products.datos.categorias[i].nombre );
-                console.log(document.getElementById(`categoriaV${j}`).value);
                 document.getElementById(`categoriaV${j}`).setAttribute('checked', true);
               }
             }
           }
         } else {
-          for (var k=0; k <= 9; k++) {
+          for (var k=0; k <= 8; k++) {
             document.getElementById(`categoriaV${k}`).checked = false;
           }
         }
@@ -292,7 +280,7 @@ function editProduct() {
   let product_discount = document.getElementById('inputV6').value;
 
   let product_category = [];
-  for (var i=0; i <= 9; i++) {
+  for (var i=0; i <= 8; i++) {
     if (document.getElementById(`categoriaV${[i]}`).checked === true){
       product_category.push(document.getElementById(`categoriaV${[i]}`).value)
     }
@@ -322,7 +310,6 @@ function editProduct() {
   req.setRequestHeader("Authorization", tokenCapitalized);
   req.onreadystatechange = function () {
     if(req.readyState === 4 && req.status === 200 ) {
-      console.log(req.status)
       alert('Producto modificado');
       getProducts()
     } else if (req.status === 500){
@@ -330,8 +317,7 @@ function editProduct() {
     }
   }
 
-  console.log('productoJSON:: ',productoJSON);
-  console.log('productData:: ',productData);
+  console.log('productoJSON actualizado:: ',productoJSON);
   req.send(productData);
 
 
@@ -344,25 +330,21 @@ function sellProduct(quantityID) {
   const productData = new FormData();
   productData.append("cantidad", sellQuantity);
   let producto = {};
-  console.log(producto);
   productData.forEach((value, key) => {
     producto[key] = value
   });
-  let productoJSON = JSON.stringify(producto);
-  console.log( productoJSON);
+  let productoJSON = JSON.stringify(producto,2,2);
   req.open("POST", url + '/productos/venta/' + quantityID , true);
   req.setRequestHeader("Authorization", tokenCapitalized);
   req.onreadystatechange = function () {
     if(req.readyState === 4 && req.status === 200 ) {
-      console.log(req.status)
       alert(sellQuantity+' Producto vendido');
       getProducts()
     } else if (req.status === 500){
       alert('Error')
     }
   }
-  console.log('productoJSON:: ', productoJSON);
-  console.log('productData:: ', productData);
+  console.log('productoJSON vendido:: ', productoJSON);
   req.send(productData);
 
 
@@ -382,10 +364,8 @@ function createProduct() {
   let product_discount = document.getElementById('product_discount').value;
 
   let product_category = [];
-  for (var i = 0; i <= 9; i++) {
+  for (var i = 0; i <= 8; i++) {
     if (document.getElementById(`categoria${[i]}`).checked === true) {
-      console.log(document.getElementById(`categoria${[i]}`).checked)
-      console.log(document.getElementById(`categoria${[i]}`).value)
       product_category.push(document.getElementById(`categoria${[i]}`).value)
     }
   }
@@ -416,15 +396,14 @@ function createProduct() {
   req.setRequestHeader("Authorization", tokenCapitalized);
   req.onreadystatechange = function () {
     if(req.readyState === 4 && req.status === 201 ) {
-      console.log(req.status)
+
       alert('Producto creado');
       getProducts()
     } else if (req.status === 500){
       alert('Error')
     }
   }
-  console.log('productoJSON:: ', productoJSON);
-  console.log('productData:: ', productData);
+  console.log('productoJSON creado:: ', productoJSON);
   req.send(productData);
 
 }
@@ -472,7 +451,7 @@ function loginOnClick() {
 }
 
 function destroySession() {
-  let token = '';
+  sessionStorage.removeItem('authToken')
   alert('Sesión cerrada');
   location.reload();
 

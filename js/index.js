@@ -65,17 +65,27 @@ function filterTag(id) {
       if (status === 0 || (200 >= status && status < 400)) {
         let products = JSON.parse(this.responseText);
 
+
         let productsArray = products.datos
-        for (let i = 0; i < productsArray.length; i++) {
-          let nombreP = productsArray[i].categorias[0].nombre
-          if (nombreP.toUpperCase() === id.toUpperCase()) {
-            element[i].style.display = "";
-            AOS.refresh();
-          }else {
-            element[i].style.display = "none";
-            AOS.refresh();
-          }
-        }
+        console.log('Productos Arreglo:: ',productsArray)
+            for (let i = 0; i < productsArray.length; i++) { // <-----ciclo que recorre los productos
+
+                  if (productsArray[i].categorias.length > 0) {
+
+                      for (let j = 0; j < productsArray[i].categorias.length; j++) { // <-----ciclo que recorre las categorias de cada producto
+
+                        let nombreP = productsArray[i].categorias[j].nombre
+                            if (nombreP.toUpperCase() === id.toUpperCase()) {
+                              element[i].style.display = "";
+                              AOS.refresh();
+                            } else {
+                              element[i].style.display = "none";
+                              AOS.refresh();
+                            }
+                      }
+                  }
+
+            }
 
       }
     }
@@ -250,12 +260,14 @@ function fillUpdate(productID) {
         inputVIMG.value ='';
         for (var k=0; k <= 8; k++) {
           document.getElementById(`categoriaV${k}`).checked = false;
+          console.log('Limpiando Todas las Categorias, 9 limpiezas')
         }
         if (products.datos.categorias.length > 0) {
               for (var i=0; i < products.datos.categorias.length; i++) {  //<---- Ciclo Recorre Categorias
                     for (var j=0; j <= 8; j++) {  //<---- Ciclo Recorre Checkboxes
                           if (products.datos.categorias[i].nombre === document.getElementById(`categoriaV${j}`).value ){
                             document.getElementById(`categoriaV${j}`).checked = true;
+                            console.log('Agregando categoria :: ', document.getElementById(`categoriaV${j}`).value)
                           }
                     }
               }

@@ -59,12 +59,13 @@ h2{
 
 }
 
-h1{
-  text-align: center;
-  color: black;
-  font-size: 160px;
-  font-family: 'Anton', sans-serif;
-  overflow: hidden;
+h1 {
+    text-align: center;
+    color: black;
+    font-size: 160px;
+    font-family: 'Anton', sans-serif;
+    overflow: hidden;
+    text-shadow: 2px 2px 4px #1d1d1d;
 }
 
 .first-section h1 {
@@ -149,6 +150,7 @@ h1{
     height: 100vh;
     display: flex;
     position: fixed;
+    background-size: cover;
     z-index: -99;
     flex-direction: column;
     justify-content: flex-start;
@@ -212,10 +214,11 @@ h1{
 }
 
 .product-img {
-  float: left;
-  height: auto;
-  width: auto;
-  overflow: hidden;
+    float: left;
+    height: auto;
+    width: auto;
+    border-radius: 0 7px 10px 7px;
+    overflow: hidden;
 }
 
 .product-img img {
@@ -332,10 +335,10 @@ span {
 }
 
 .welcome-header h2 {
-  font-size: 28px;
-  font-family: 'Anton', sans-serif;
-  color: #fff;
-  text-shadow: 0px 0px 12px #f1c9d0;
+    font-size: 28px;
+    font-family: 'Anton', sans-serif;
+    color: #fff;
+    text-shadow: 2px 2px 4px #1d1d1d;
 }
 
 .btn-primary {
@@ -396,6 +399,11 @@ a {
 
 .discount h1{
   font-size: 40px;
+}
+
+.foot{
+  background-color: #fea2a6;
+  height: 65px;
 }
 
 
@@ -573,8 +581,15 @@ nav i {
     margin: 1.75rem auto;
   }
   .full-wh {
-  
+
     overflow: hidden !important;
+}
+.foot{
+  background-color: #fea2a6;
+  height: 80px;
+}
+.foot i{
+  font-size: 40px;
 }
 }
 

@@ -59,12 +59,13 @@ h2{
 
 }
 
-h1{
-  text-align: center;
-  color: black;
-  font-size: 160px;
-  font-family: 'Anton', sans-serif;
-  overflow: hidden;
+h1 {
+    text-align: center;
+    color: black;
+    font-size: 160px;
+    font-family: 'Anton', sans-serif;
+    overflow: hidden;
+    text-shadow: 2px 2px 4px #1d1d1d;
 }
 
 .first-section h1 {
@@ -143,14 +144,17 @@ h1{
   padding: 90px
 }
 
-.first-section{
-  background: radial-gradient(circle, #ecaba8 0%, #ecaba8 100%);
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+.first-section {
+    background-image: url("../img/fondo.jpg");
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: fixed;
+    background-size: cover;
+    z-index: -99;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 .first-section img{
   width: 100vw;
@@ -210,10 +214,11 @@ h1{
 }
 
 .product-img {
-  float: left;
-  height: auto;
-  width: auto;
-  overflow: hidden;
+    float: left;
+    height: auto;
+    width: auto;
+    border-radius: 0 7px 10px 7px;
+    overflow: hidden;
 }
 
 .product-img img {
@@ -330,10 +335,10 @@ span {
 }
 
 .welcome-header h2 {
-  font-size: 28px;
-  font-family: 'Anton', sans-serif;
-  color: #fff;
-  text-shadow: 0px 0px 12px #f1c9d0;
+    font-size: 28px;
+    font-family: 'Anton', sans-serif;
+    color: #fff;
+    text-shadow: 2px 2px 4px #1d1d1d;
 }
 
 .btn-primary {
@@ -381,9 +386,41 @@ a {
     background-color: transparent;
 }
 
+.discount{
+  position: absolute;
+  right: 0;
+  background-color: #11e411;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  padding-left: 6px;
+  color: #ecaba8;
+}
+
+
+.discount h1{
+  font-size: 40px;
+}
+
+.foot{
+  background-color: #fea2a6;
+  height: 65px;
+}
 
 
 @media (max-width:992px) {
+
+  .first-section {
+      background-image: url("../img/fondoR.jpg");
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      position: fixed;
+      z-index: -99;
+      background-size: cover;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+  }
 
   .logo-prox{
     width:300px;
@@ -402,9 +439,13 @@ a {
 .welcome-header {
     display: flex;
     justify-content: flex-end;
-    height: 85vh;
+    height: 87vh;
     align-items: flex-start;
     flex-direction: column;
+}
+nav i {
+    font-size: 30px;
+    color: black;
 }
 .navbar-transparent {
     background-color: transparent;
@@ -539,6 +580,17 @@ a {
     max-width: 700px;
     margin: 1.75rem auto;
   }
+  .full-wh {
+
+    overflow: hidden !important;
+}
+.foot{
+  background-color: #fea2a6;
+  height: 80px;
+}
+.foot i{
+  font-size: 40px;
+}
 }
 
 @keyframes revelar {

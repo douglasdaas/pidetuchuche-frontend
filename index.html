@@ -14,14 +14,14 @@
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163565929-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+<!--  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163565929-1"></script>-->
+<!--  <script>-->
+<!--    window.dataLayer = window.dataLayer || [];-->
+<!--    function gtag(){dataLayer.push(arguments);}-->
+<!--    gtag('js', new Date());-->
 
-    gtag('config', 'UA-163565929-1');
-  </script>
+<!--    gtag('config', 'UA-163565929-1');-->
+<!--  </script>-->
 
 </head>
 <body>
@@ -73,7 +73,7 @@
                     <div class="form-group">
                       <label for="product_priority">Prioridad</label>
                       <input type="number" min="0" step="1" class="form-control" id="product_priority" placeholder="Nº entre 1 y 10">
-                      <small>La prioridad indica en que orden se muestra el producto, siendo 1 la maxima (se enseña primero.)</small>
+                      <small>La prioridad indica en que orden se muestra el producto, siendo 1 la maxima (se enseña primero).</small>
                     </div>
                   </div>
                 </div>
@@ -89,48 +89,31 @@
                       <label for="product_discount">Descuento</label>
                       <input type="number" min="0" step="1" class="form-control" id="product_discount" placeholder="%">
                       <small>El descuento es un numero entero, el cual representa un porcentaje de descuento.</small>
-                      <small>Si se deja vacio es cero</small>
+                      <small>Si se deja vacio es cero.</small>
                     </div>
                   </div>
                 </div>
                 <label for="product_discount">Categorias</label>
                 <div class="form-group">
-
                   <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="chocolates" id="categoria0">
-                    <label class="form-check-label" for="exampleCheck1">Chocolates</label>
-                  </div>
-                  <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="gomitas" id="categoria1">
-                    <label class="form-check-label" for="exampleCheck1">Gomitas</label>
-                  </div>
-                  <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="cereal" id="categoria2">
-                    <label class="form-check-label" for="exampleCheck1">Cereal</label>
-                  </div>
-                  <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="galletas" id="categoria3">
-                    <label class="form-check-label" for="exampleCheck1">Galletas</label>
-                  </div>
-                  <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="combos" id="categoria4">
+                    <input type="checkbox" class="form-check-input" value="combos" id="categoria0">
                     <label class="form-check-label" for="exampleCheck1">Combos</label>
                   </div>
                   <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="papitas" id="categoria5">
-                    <label class="form-check-label" for="exampleCheck1">Papitas</label>
+                    <input type="checkbox" class="form-check-input" value="chocolates" id="categoria1">
+                    <label class="form-check-label" for="exampleCheck1">Chocolates</label>
                   </div>
                   <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="chicles" id="categoria6">
-                    <label class="form-check-label" for="exampleCheck1">Chicles</label>
+                    <input type="checkbox" class="form-check-input" value="dulces" id="categoria2">
+                    <label class="form-check-label" for="exampleCheck1">Dulces</label>
                   </div>
                   <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="bebidas" id="categoria7">
+                    <input type="checkbox" class="form-check-input" value="salados" id="categoria3">
+                    <label class="form-check-label" for="exampleCheck1">Salados</label>
+                  </div>
+                  <div class="form-check-inline">
+                    <input type="checkbox" class="form-check-input" value="bebidas" id="categoria4">
                     <label class="form-check-label" for="exampleCheck1">Bebidas</label>
-                  </div>
-                  <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="alimentos" id="categoria8">
-                    <label class="form-check-label" for="exampleCheck1">Alimentos</label>
                   </div>
                 </div>
               </form>
@@ -231,41 +214,62 @@
                 <div class="form-group">
 
                   <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="chocolates" id="categoriaV0">
-                    <label class="form-check-label" for="exampleCheck1">Chocolates</label>
-                  </div>
-                  <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="gomitas" id="categoriaV1">
-                    <label class="form-check-label" for="exampleCheck1">Gomitas</label>
-                  </div>
-                  <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="cereal" id="categoriaV2">
-                    <label class="form-check-label" for="exampleCheck1">Cereal</label>
-                  </div>
-                  <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="galletas" id="categoriaV3">
-                    <label class="form-check-label" for="exampleCheck1">Galletas</label>
-                  </div>
-                  <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="combos" id="categoriaV4">
+                    <input type="checkbox" class="form-check-input" value="combos" id="categoriaV0">
                     <label class="form-check-label" for="exampleCheck1">Combos</label>
                   </div>
                   <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="papitas" id="categoriaV5">
-                    <label class="form-check-label" for="exampleCheck1">Papitas</label>
+                    <input type="checkbox" class="form-check-input" value="chocolates" id="categoriaV1">
+                    <label class="form-check-label" for="exampleCheck1">Chocolates</label>
                   </div>
                   <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="chicles" id="categoriaV6">
-                    <label class="form-check-label" for="exampleCheck1">Chicles</label>
+                    <input type="checkbox" class="form-check-input" value="dulces" id="categoriaV2">
+                    <label class="form-check-label" for="exampleCheck1">Dulces</label>
                   </div>
                   <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="bebidas" id="categoriaV7">
+                    <input type="checkbox" class="form-check-input" value="salados" id="categoriaV3">
+                    <label class="form-check-label" for="exampleCheck1">Salados</label>
+                  </div>
+                  <div class="form-check-inline">
+                    <input type="checkbox" class="form-check-input" value="bebidas" id="categoriaV4">
                     <label class="form-check-label" for="exampleCheck1">Bebidas</label>
                   </div>
-                  <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" value="alimentos" id="categoriaV8">
-                    <label class="form-check-label" for="exampleCheck1">Alimentos</label>
-                  </div>
+
+<!--                  <div class="form-check-inline">-->
+<!--                    <input type="checkbox" class="form-check-input" value="chocolates" id="categoriaV0">-->
+<!--                    <label class="form-check-label" for="exampleCheck1">Chocolates</label>-->
+<!--                  </div>-->
+<!--                  <div class="form-check-inline">-->
+<!--                    <input type="checkbox" class="form-check-input" value="gomitas" id="categoriaV1">-->
+<!--                    <label class="form-check-label" for="exampleCheck1">Gomitas</label>-->
+<!--                  </div>-->
+<!--                  <div class="form-check-inline">-->
+<!--                    <input type="checkbox" class="form-check-input" value="cereal" id="categoriaV2">-->
+<!--                    <label class="form-check-label" for="exampleCheck1">Cereal</label>-->
+<!--                  </div>-->
+<!--                  <div class="form-check-inline">-->
+<!--                    <input type="checkbox" class="form-check-input" value="galletas" id="categoriaV3">-->
+<!--                    <label class="form-check-label" for="exampleCheck1">Galletas</label>-->
+<!--                  </div>-->
+<!--                  <div class="form-check-inline">-->
+<!--                    <input type="checkbox" class="form-check-input" value="combos" id="categoriaV4">-->
+<!--                    <label class="form-check-label" for="exampleCheck1">Combos</label>-->
+<!--                  </div>-->
+<!--                  <div class="form-check-inline">-->
+<!--                    <input type="checkbox" class="form-check-input" value="papitas" id="categoriaV5">-->
+<!--                    <label class="form-check-label" for="exampleCheck1">Papitas</label>-->
+<!--                  </div>-->
+<!--                  <div class="form-check-inline">-->
+<!--                    <input type="checkbox" class="form-check-input" value="chicles" id="categoriaV6">-->
+<!--                    <label class="form-check-label" for="exampleCheck1">Chicles</label>-->
+<!--                  </div>-->
+<!--                  <div class="form-check-inline">-->
+<!--                    <input type="checkbox" class="form-check-input" value="bebidas" id="categoriaV7">-->
+<!--                    <label class="form-check-label" for="exampleCheck1">Bebidas</label>-->
+<!--                  </div>-->
+<!--                  <div class="form-check-inline">-->
+<!--                    <input type="checkbox" class="form-check-input" value="alimentos" id="categoriaV8">-->
+<!--                    <label class="form-check-label" for="exampleCheck1">Alimentos</label>-->
+<!--                  </div>-->
                 </div>
               </form>
             </div>
@@ -377,35 +381,54 @@
     </div>
     <div class="category-filter">
       <div>
-        <a href="#container-products"><button id="alimentos" type='button'>Alimentos</button></a>
-      </div>
-      <div>
-        <a href="#container-products"><button id="bebidas" type='button'>Bebidas</button></a>
+        <a href="#container-products"><button id="combos" type='button'>Combos</button></a>
       </div>
       <div>
         <a href="#container-products"><button id="chocolates" type='button'>Chocolates</button></a>
       </div>
       <div>
-        <a href="#container-products"><button id="cereal" type='button'>Cereales </button></a>
+        <a href="#container-products"><button id="dulces" type='button'>Dulces</button></a>
       </div>
       <div>
-        <a href="#container-products"><button id="gomitas" type='button'>Gomitas</button></a>
+        <a href="#container-products"><button id="salados" type='button'>Salados</button></a>
       </div>
       <div>
-        <a href="#container-products"><button id="papitas" type='button'>Papitas</button></a>
-      </div>
-      <div>
-        <a href="#container-products"><button id="galletas" type='button'>Galletas</button></a>
-      </div>
-      <div>
-        <a href="#container-products"><button id="combos" type='button'>Combos</button></a>
-      </div>
-      <div>
-        <a href="#container-products"><button id="chicles" type='button'>Chicles</button></a>
+        <a href="#container-products"><button id="bebidas" type='button'>Bebidas</button></a>
       </div>
       <div>
         <a href="#container-products"><button onclick="showAll()" type='button'>Todo</button></a>
       </div>
+
+<!--      <div>-->
+<!--        <a href="#container-products"><button id="alimentos" type='button'>Alimentos</button></a>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <a href="#container-products"><button id="bebidas" type='button'>Bebidas</button></a>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <a href="#container-products"><button id="chocolates" type='button'>Chocolates</button></a>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <a href="#container-products"><button id="cereal" type='button'>Cereales </button></a>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <a href="#container-products"><button id="gomitas" type='button'>Gomitas</button></a>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <a href="#container-products"><button id="papitas" type='button'>Papitas</button></a>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <a href="#container-products"><button id="galletas" type='button'>Galletas</button></a>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <a href="#container-products"><button id="combos" type='button'>Combos</button></a>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <a href="#container-products"><button id="chicles" type='button'>Chicles</button></a>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <a href="#container-products"><button onclick="showAll()" type='button'>Todo</button></a>-->
+<!--      </div>-->
     </div>
     <div class="second-section">
       <div id="container-products" class="container-fluid container-products">

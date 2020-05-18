@@ -8,17 +8,13 @@ let sel1 = document.getElementById('product_category1')
 let pContainer = document.getElementById('container-products');
 let sellContainer = document.getElementById('bodySell')
 let createProductContainer = document.getElementById('createProductContainer');
-let alimentos = document.getElementById('alimentos')
 let bebidas = document.getElementById('bebidas')
 let chocolates = document.getElementById('chocolates')
-let cereal = document.getElementById('cereal')
-let gomitas = document.getElementById('gomitas')
-let papitas = document.getElementById('papitas')
-let galletas = document.getElementById('galletas')
 let combos = document.getElementById('combos')
-let chicles = document.getElementById('chicles')
+let dulces = document.getElementById('dulces')
+let salados = document.getElementById('salados')
 let editProductContainer = document.getElementById('editProduct');
-const url = 'https://pidetuchuche-backend.herokuapp.com';
+const url = 'http://127.0.0.1:3334';
 const req = new XMLHttpRequest();
 
 
@@ -68,6 +64,7 @@ function filterTag(id) {
 
         let productsArray = products.datos
         console.log('Productos Arreglo:: ',productsArray)
+        console.log('Categoria:: ',id)
             for (let i = 0; i < productsArray.length; i++) { // <-----ciclo que recorre los productos
 
                   if (productsArray[i].categorias.length > 0) {
@@ -78,11 +75,15 @@ function filterTag(id) {
                             if (nombreP.toUpperCase() === id.toUpperCase()) {
                               element[i].style.display = "";
                               AOS.refresh();
+                              i++;
                             } else {
                               element[i].style.display = "none";
                               AOS.refresh();
                             }
                       }
+                  } else if (productsArray[i].categorias.length === 0) {
+                    element[i].style.display = "none";
+                    AOS.refresh();
                   }
 
             }
@@ -105,33 +106,20 @@ function showAll() {
 }
 
 
-alimentos.addEventListener("click", function() {
-  filterTag(alimentos.id)
-}, false);
 bebidas.addEventListener("click", function() {
   filterTag(bebidas.id)
 }, false);
 chocolates.addEventListener("click", function() {
   filterTag(chocolates.id)
 }, false);
-cereal.addEventListener("click", function() {
-  filterTag(cereal.id)
-}, false);
-gomitas.addEventListener("click", function() {
-  filterTag(gomitas.id)
-}, false);
-papitas.addEventListener("click", function() {
-  filterTag(papitas.id)
-}, false);
-
-galletas.addEventListener("click", function() {
-  filterTag(galletas.id)
-}, false);
 combos.addEventListener("click", function() {
   filterTag(combos.id)
 }, false);
-chicles.addEventListener("click", function() {
-  filterTag(chicles.id)
+dulces.addEventListener("click", function() {
+  filterTag(dulces.id)
+}, false);
+salados.addEventListener("click", function() {
+  filterTag(salados.id)
 }, false);
 
 
@@ -266,13 +254,13 @@ function fillUpdate(productID) {
         inputV5.value = products.datos.precio;
         inputV6.value = products.datos.descuento;
         inputVIMG.value ='';
-        for (var k=0; k <= 8; k++) {
+        for (var k=0; k <= 4; k++) {
           document.getElementById(`categoriaV${k}`).checked = false;
-          console.log('Limpiando Todas las Categorias, 9 limpiezas')
+          console.log(`Limpiando Todas las Categorias, ${k} limpiezas`)
         }
         if (products.datos.categorias.length > 0) {
               for (var i=0; i < products.datos.categorias.length; i++) {  //<---- Ciclo Recorre Categorias
-                    for (var j=0; j <= 8; j++) {  //<---- Ciclo Recorre Checkboxes
+                    for (var j=0; j <= 4; j++) {  //<---- Ciclo Recorre Checkboxes
                           if (products.datos.categorias[i].nombre === document.getElementById(`categoriaV${j}`).value ){
                             document.getElementById(`categoriaV${j}`).checked = true;
                             console.log('Agregando categoria :: ', document.getElementById(`categoriaV${j}`).value)
@@ -301,7 +289,7 @@ function editProduct() {
   let product_discount = document.getElementById('inputV6').value;
 
   let product_category = [];
-  for (var i=0; i <= 8; i++) {
+  for (var i=0; i <= 4; i++) {
     if (document.getElementById(`categoriaV${[i]}`).checked === true){
       product_category.push(document.getElementById(`categoriaV${[i]}`).value)
     }
@@ -385,7 +373,7 @@ function createProduct() {
   let product_discount = document.getElementById('product_discount').value;
 
   let product_category = [];
-  for (var i = 0; i <= 8; i++) {
+  for (var i = 0; i <= 4; i++) {
     if (document.getElementById(`categoria${[i]}`).checked === true) {
       product_category.push(document.getElementById(`categoria${[i]}`).value)
     }

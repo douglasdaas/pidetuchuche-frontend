@@ -14,7 +14,7 @@ let combos = document.getElementById('combos')
 let dulces = document.getElementById('dulces')
 let salados = document.getElementById('salados')
 let editProductContainer = document.getElementById('editProduct');
-const url = 'http://127.0.0.1:3334';
+const url = 'https://pidetuchuche-backend.herokuapp.com';
 const req = new XMLHttpRequest();
 
 

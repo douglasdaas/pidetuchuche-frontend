@@ -97,24 +97,28 @@
                 <div class="form-group">
                   <div class="form-check-inline">
                     <input type="checkbox" class="form-check-input" value="combos" id="categoria0">
-                    <label class="form-check-label" for="exampleCheck1">Combos</label>
+                    <label class="form-check-label" for="categoria0">Combos</label>
                   </div>
                   <div class="form-check-inline">
                     <input type="checkbox" class="form-check-input" value="chocolates" id="categoria1">
-                    <label class="form-check-label" for="exampleCheck1">Chocolates</label>
+                    <label class="form-check-label" for="categoria1">Chocolates</label>
                   </div>
                   <div class="form-check-inline">
                     <input type="checkbox" class="form-check-input" value="dulces" id="categoria2">
-                    <label class="form-check-label" for="exampleCheck1">Dulces</label>
+                    <label class="form-check-label" for="categoria2">Dulces</label>
                   </div>
                   <div class="form-check-inline">
                     <input type="checkbox" class="form-check-input" value="salados" id="categoria3">
-                    <label class="form-check-label" for="exampleCheck1">Salados</label>
+                    <label class="form-check-label" for="categoria3">Salados</label>
                   </div>
                   <div class="form-check-inline">
                     <input type="checkbox" class="form-check-input" value="bebidas" id="categoria4">
-                    <label class="form-check-label" for="exampleCheck1">Bebidas</label>
+                    <label class="form-check-label" for="categoria4">Bebidas</label>
                   </div>
+                </div>
+                <div class="form-check-inline">
+                  <input type="checkbox" class="form-check-input" value="" id="product_main">
+                  <label class="form-check-label" for="product_main">Producto Principal</label>
                 </div>
               </form>
             </div>
@@ -183,13 +187,13 @@
                   <div class="col">
                     <div class="form-group">
                       <label for="product_quantity">Cantidad</label>
-                      <input id="inputV3" type="number" min="0" step="1" class="form-control" id="product_quantity" placeholder="Nº de Productos">
+                      <input id="inputV3" type="number" min="0" step="1" class="form-control" placeholder="Nº de Productos">
                     </div>
                   </div>
                   <div class="col">
                     <div class="form-group">
                       <label for="product_priority">Prioridad</label>
-                      <input id="inputV4" type="number" min="0" step="1" class="form-control" id="product_priority" placeholder="Nº entre 1 y 10">
+                      <input id="inputV4" type="number" min="0" step="1" class="form-control" placeholder="Nº entre 1 y 10">
                       <small>La prioridad indica en que orden se muestra el producto, siendo 1 la maxima (se enseña primero.)</small>
                     </div>
                   </div>
@@ -198,13 +202,13 @@
                   <div class="col">
                     <div class="form-group">
                       <label for="product_price">Precio</label>
-                      <input id="inputV5" type="number" min="0" step="1" class="form-control" id="product_price" placeholder="$">
+                      <input id="inputV5" type="number" min="0" step="1" class="form-control" placeholder="$">
                     </div>
                   </div>
                   <div class="col">
                     <div class="form-group">
                       <label for="product_discount">Descuento</label>
-                      <input id="inputV6" type="number" min="0" step="1" class="form-control" id="product_discount" placeholder="%">
+                      <input id="inputV6" type="number" min="0" step="1" class="form-control" placeholder="%">
                       <small>El descuento es un numero entero, el cual representa un porcentaje de descuento.</small>
                       <small>Si se deja vacio es cero</small>
                     </div>
@@ -215,62 +219,30 @@
 
                   <div class="form-check-inline">
                     <input type="checkbox" class="form-check-input" value="combos" id="categoriaV0">
-                    <label class="form-check-label" for="exampleCheck1">Combos</label>
+                    <label class="form-check-label" for="categoriaV0">Combos</label>
                   </div>
                   <div class="form-check-inline">
                     <input type="checkbox" class="form-check-input" value="chocolates" id="categoriaV1">
-                    <label class="form-check-label" for="exampleCheck1">Chocolates</label>
+                    <label class="form-check-label" for="categoriaV1">Chocolates</label>
                   </div>
                   <div class="form-check-inline">
                     <input type="checkbox" class="form-check-input" value="dulces" id="categoriaV2">
-                    <label class="form-check-label" for="exampleCheck1">Dulces</label>
+                    <label class="form-check-label" for="categoriaV2">Dulces</label>
                   </div>
                   <div class="form-check-inline">
                     <input type="checkbox" class="form-check-input" value="salados" id="categoriaV3">
-                    <label class="form-check-label" for="exampleCheck1">Salados</label>
+                    <label class="form-check-label" for="categoriaV3">Salados</label>
                   </div>
                   <div class="form-check-inline">
                     <input type="checkbox" class="form-check-input" value="bebidas" id="categoriaV4">
-                    <label class="form-check-label" for="exampleCheck1">Bebidas</label>
+                    <label class="form-check-label" for="categoriaV4">Bebidas</label>
                   </div>
-
-<!--                  <div class="form-check-inline">-->
-<!--                    <input type="checkbox" class="form-check-input" value="chocolates" id="categoriaV0">-->
-<!--                    <label class="form-check-label" for="exampleCheck1">Chocolates</label>-->
-<!--                  </div>-->
-<!--                  <div class="form-check-inline">-->
-<!--                    <input type="checkbox" class="form-check-input" value="gomitas" id="categoriaV1">-->
-<!--                    <label class="form-check-label" for="exampleCheck1">Gomitas</label>-->
-<!--                  </div>-->
-<!--                  <div class="form-check-inline">-->
-<!--                    <input type="checkbox" class="form-check-input" value="cereal" id="categoriaV2">-->
-<!--                    <label class="form-check-label" for="exampleCheck1">Cereal</label>-->
-<!--                  </div>-->
-<!--                  <div class="form-check-inline">-->
-<!--                    <input type="checkbox" class="form-check-input" value="galletas" id="categoriaV3">-->
-<!--                    <label class="form-check-label" for="exampleCheck1">Galletas</label>-->
-<!--                  </div>-->
-<!--                  <div class="form-check-inline">-->
-<!--                    <input type="checkbox" class="form-check-input" value="combos" id="categoriaV4">-->
-<!--                    <label class="form-check-label" for="exampleCheck1">Combos</label>-->
-<!--                  </div>-->
-<!--                  <div class="form-check-inline">-->
-<!--                    <input type="checkbox" class="form-check-input" value="papitas" id="categoriaV5">-->
-<!--                    <label class="form-check-label" for="exampleCheck1">Papitas</label>-->
-<!--                  </div>-->
-<!--                  <div class="form-check-inline">-->
-<!--                    <input type="checkbox" class="form-check-input" value="chicles" id="categoriaV6">-->
-<!--                    <label class="form-check-label" for="exampleCheck1">Chicles</label>-->
-<!--                  </div>-->
-<!--                  <div class="form-check-inline">-->
-<!--                    <input type="checkbox" class="form-check-input" value="bebidas" id="categoriaV7">-->
-<!--                    <label class="form-check-label" for="exampleCheck1">Bebidas</label>-->
-<!--                  </div>-->
-<!--                  <div class="form-check-inline">-->
-<!--                    <input type="checkbox" class="form-check-input" value="alimentos" id="categoriaV8">-->
-<!--                    <label class="form-check-label" for="exampleCheck1">Alimentos</label>-->
-<!--                  </div>-->
                 </div>
+                <div class="form-check-inline">
+                  <input type="checkbox" class="form-check-input" value="" id="inputV7">
+                  <label class="form-check-label" for="inputV7">Producto Principal</label>
+                </div>
+
               </form>
             </div>
           </div>

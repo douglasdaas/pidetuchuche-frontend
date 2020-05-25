@@ -137,27 +137,35 @@ function getProductsPrincipal() {
       let status = req.status;
       if (status === 0 || (200 >= status && status < 400)) {
         let productsPrincipal = JSON.parse(this.responseText);
-        console.log('Productos Obtenidosssssssssss: ', productsPrincipal);
-        for (let i = 0; i < 5; i++) {
-          let div = document.createElement('div');
-          div.classList.add("carousel-item");
-          let tr = document.createElement('tr');
-          tr.innerHTML = '<th scope="row">'+productsPrincipal.datos[i].nombre+'</th><td>' + productsPrincipal.datos[i].cantidad + '</td><td><input id="sellQuantity'+productsPrincipal.datos[i].id+'" class="form-control" type="number" name="" value=""></td><td><button onclick="sellProduct('+productsPrincipal.datos[i].id+')" type="button" class="btn btn-primary">Vender</button></td>'
-          if (productsPrincipal.datos[i].categorias.length > 0){
-            if (productsPrincipal.datos[i].descuento===null) {
-              div.innerHTML = '<div class="principal-product"><div class="principal-card card-1"><div class="principal-text"><h1>'+productsPrincipal.datos[i].nombre+'</h1><h2>Precio</h2><h3>'+productsPrincipal.datos[i].precio_total+'$</h3><h4>Stock: 32</h4><p>Gomita Fini + Oreo + Pringle + Milka + Chips Ahoy</p><div><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none"  data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" type="button" name="button">borrar</button></div></div><img class="img-fluid img-principal" src="' + productsPrincipal.datos[i].ruta_imagen +  '" alt=""></div></div>';
-            }else {
-              div.innerHTML = '<div class="principal-product"><div class="principal-card card-1"><div class="principal-text"><h1>'+productsPrincipal.datos[i].nombre+'</h1><h2>Precio</h2><h3>'+productsPrincipal.datos[i].precio_total+'$</h3><h4>Stock: 32</h4><p>Gomita Fini + Oreo + Pringle + Milka + Chips Ahoy</p><div><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none"  data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" type="button" name="button">borrar</button></div></div><img class="img-fluid img-principal" src="' + productsPrincipal.datos[i].ruta_imagen +  '" alt=""></div></div>';
+        console.log('Productos Principales: ', productsPrincipal);
+        if (productsPrincipal.datos.length > 0){
+          for (let i = 0; i < 5; i++) {
+            let div = document.createElement('div');
+            div.classList.add("carousel-item");
+            let tr = document.createElement('tr');
+            tr.innerHTML = '<th scope="row">'+productsPrincipal.datos[i].nombre+'</th><td>' + productsPrincipal.datos[i].cantidad + '</td><td><input id="sellQuantity'+productsPrincipal.datos[i].id+'" class="form-control" type="number" name="" value=""></td><td><button onclick="sellProduct('+productsPrincipal.datos[i].id+')" type="button" class="btn btn-primary">Vender</button></td>'
+            if (productsPrincipal.datos[i].categorias.length > 0){
+              if (productsPrincipal.datos[i].descuento===null) {
+                div.innerHTML = '<div class="principal-product"><div class="principal-card card-1"><div class="principal-text"><h1>'+productsPrincipal.datos[i].nombre+'</h1><h2>Precio</h2><h3>'+productsPrincipal.datos[i].precio_total+'$</h3><h4>Stock:' +  productsPrincipal.datos[i].cantidad + '</h4><p>'+ productsPrincipal.datos[i].descripcion + '</p><div><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none"  data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button></div></div><img class="img-fluid img-principal" src="' + productsPrincipal.datos[i].ruta_imagen +  '" alt=""></div></div>';
+              }else {
+                div.innerHTML = '<div class="principal-product"><div class="principal-card card-1"><div class="principal-text"><h1>'+productsPrincipal.datos[i].nombre+'</h1><h2>Precio</h2><h3>'+productsPrincipal.datos[i].precio_total+'$</h3><h4>Stock:' +  productsPrincipal.datos[i].cantidad + '</h4><p>'+ productsPrincipal.datos[i].descripcion + '</p><div><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none"  data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button></div></div><img class="img-fluid img-principal" src="' + productsPrincipal.datos[i].ruta_imagen +  '" alt=""></div></div>';
+                // div.innerHTML = '<div class="principal-product"><div class="principal-card card-1"><div class="principal-text"><h1>'+productsPrincipal.datos[i].nombre+'</h1><h2>Precio</h2><h3>'+productsPrincipal.datos[i].precio_total+'$</h3><h4>Stock: 32</h4><p>Gomita Fini + Oreo + Pringle + Milka + Chips Ahoy</p><div><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none"  data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" type="button" name="button">borrar</button></div></div><img class="img-fluid img-principal" src="' + productsPrincipal.datos[i].ruta_imagen +  '" alt=""></div></div>';
+              }
+            } else {
+              if (productsPrincipal.datos[i].descuento===null) {
+                div.innerHTML = '<div class="principal-product"><div class="principal-card card-1"><div class="principal-text"><h1>'+productsPrincipal.datos[i].nombre+'</h1><h2>Precio</h2><h3>'+productsPrincipal.datos[i].precio_total+'$</h3><h4>Stock:' +  productsPrincipal.datos[i].cantidad + '</h4><p>'+ productsPrincipal.datos[i].descripcion + '</p><div><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none"  data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button></div></div><img class="img-fluid img-principal" src="' + productsPrincipal.datos[i].ruta_imagen +  '" alt=""></div></div>';
+
+                // div.innerHTML = '<div class="principal-product"><div class="principal-card card-1"><div class="principal-text"><h1>'+productsPrincipal.datos[i].nombre+'</h1><h2>Precio</h2><h3>'+productsPrincipal.datos[i].precio_total+'$</h3><h4>Stock: 32</h4><p>Gomita Fini + Oreo + Pringle + Milka + Chips Ahoy</p><div><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none"  data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" type="button" name="button">borrar</button></div></div><img class="img-fluid img-principal" src="' + productsPrincipal.datos[i].ruta_imagen +  '" alt=""></div></div>';
+              }else {
+                div.innerHTML = '<div class="principal-product"><div class="principal-card card-1"><div class="principal-text"><h1>'+productsPrincipal.datos[i].nombre+'</h1><h2>Precio</h2><h3>'+productsPrincipal.datos[i].precio_total+'$</h3><h4>Stock:' +  productsPrincipal.datos[i].cantidad + '</h4><p>'+ productsPrincipal.datos[i].descripcion + '</p><div><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none"  data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button></div></div><img class="img-fluid img-principal" src="' + productsPrincipal.datos[i].ruta_imagen +  '" alt=""></div></div>';
+
+                // div.innerHTML = '<div class="principal-product"><div class="principal-card card-1"><div class="principal-text"><h1>'+productsPrincipal.datos[i].nombre+'</h1><h2>Precio</h2><h3>'+productsPrincipal.datos[i].precio_total+'$</h3><h4>Stock: 32</h4><p>Gomita Fini + Oreo + Pringle + Milka + Chips Ahoy</p><div><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none"  data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" type="button" name="button">borrar</button></div></div><img class="img-fluid img-principal" src="' + productsPrincipal.datos[i].ruta_imagen +  '" alt=""></div></div>';
+              }
             }
-          } else {
-            if (productsPrincipal.datos[i].descuento===null) {
-              div.innerHTML = '<div class="principal-product"><div class="principal-card card-1"><div class="principal-text"><h1>'+productsPrincipal.datos[i].nombre+'</h1><h2>Precio</h2><h3>'+productsPrincipal.datos[i].precio_total+'$</h3><h4>Stock: 32</h4><p>Gomita Fini + Oreo + Pringle + Milka + Chips Ahoy</p><div><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none"  data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" type="button" name="button">borrar</button></div></div><img class="img-fluid img-principal" src="' + productsPrincipal.datos[i].ruta_imagen +  '" alt=""></div></div>';
-            }else {
-              div.innerHTML = '<div class="principal-product"><div class="principal-card card-1"><div class="principal-text"><h1>'+productsPrincipal.datos[i].nombre+'</h1><h2>Precio</h2><h3>'+productsPrincipal.datos[i].precio_total+'$</h3><h4>Stock: 32</h4><p>Gomita Fini + Oreo + Pringle + Milka + Chips Ahoy</p><div><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none"  data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" type="button" name="button">borrar</button></div></div><img class="img-fluid img-principal" src="' + productsPrincipal.datos[i].ruta_imagen +  '" alt=""></div></div>';
-            }
+            principalContainer.appendChild(div);
           }
-          principalContainer.appendChild(div);
         }
+
       }
     }
   };
@@ -269,8 +277,8 @@ function getCategorias() {
 
 
 window.onload = function() {
-  getCategorias();
-
+  // getCategorias();
+  getProductsPrincipal();
   getProducts();
 
 };
@@ -283,6 +291,7 @@ function fillUpdate(productID) {
   let inputV4 = document.getElementById('inputV4');
   let inputV5 = document.getElementById('inputV5');
   let inputV6 = document.getElementById('inputV6');
+  let inputV7 = document.getElementById('inputV7');
   let inputVIMG = document.getElementById('inputVIMG')
   console.log('id de producto a actualizar:: ', productID);
 
@@ -298,6 +307,7 @@ function fillUpdate(productID) {
         inputV4.value = products.datos.prioridad;
         inputV5.value = products.datos.precio;
         inputV6.value = products.datos.descuento;
+        inputV7.checked = products.datos.principal === true; //Esto es lo mismo que si esta true lo ponga check
         inputVIMG.value ='';
         for (var k=0; k <= 4; k++) {
           document.getElementById(`categoriaV${k}`).checked = false;
@@ -332,6 +342,7 @@ function editProduct() {
   let product_priority = document.getElementById('inputV4').value;
   let product_price = document.getElementById('inputV5').value;
   let product_discount = document.getElementById('inputV6').value;
+  let product_main = document.getElementById('inputV7').checked;
 
   let product_category = [];
   for (var i=0; i <= 4; i++) {
@@ -353,6 +364,7 @@ function editProduct() {
   productData.append("prioridad", product_priority);
   productData.append("precio", product_price);
   productData.append("descuento", product_discount);
+  productData.append("principal", product_main);
   if (product_category.length>0) {
     productData.append("categorias",JSON.stringify(product_category));
   };
@@ -416,6 +428,8 @@ function createProduct() {
   let product_priority = document.getElementById('product_priority').value;
   let product_price = document.getElementById('product_price').value;
   let product_discount = document.getElementById('product_discount').value;
+  let product_main = document.getElementById('product_main').checked;
+
 
   let product_category = [];
   for (var i = 0; i <= 4; i++) {
@@ -436,6 +450,7 @@ function createProduct() {
   productData.append("prioridad", product_priority);
   productData.append("precio", product_price);
   productData.append("descuento", product_discount);
+  productData.append("principal", product_main);
   if (product_category.length > 0) {
     productData.append("categorias", JSON.stringify(product_category));
   }

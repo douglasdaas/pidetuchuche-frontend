@@ -1,5 +1,10 @@
 console.log('Pidetuchuche.com!');
 
+var interval = setInterval(function() {
+  if (window.location.hash)
+    window.location = window.location.hash;
+}, 100);
+ setTimeout(function() { clearInterval(interval); }, 1000);
 
 
 let resultado = document.getElementById('container-product');
@@ -7,6 +12,7 @@ let sel = document.getElementById('product_category')
 let sel1 = document.getElementById('product_category1')
 let pContainer = document.getElementById('container-products');
 let sellContainer = document.getElementById('bodySell')
+let principalContainer = document.getElementById('principalContainer');
 let createProductContainer = document.getElementById('createProductContainer');
 let bebidas = document.getElementById('bebidas')
 let chocolates = document.getElementById('chocolates')
@@ -25,6 +31,7 @@ let scroll = document.getElementById('scrollButton');
 function scrollHeight() {
   window.scrollBy(0, height);
 }
+
 
 
 
@@ -123,6 +130,39 @@ salados.addEventListener("click", function() {
 }, false);
 
 
+function getProductsPrincipal() {
+  req.open('GET', url + '/productos-principal', true);
+  req.onreadystatechange = function () {
+    if(req.readyState === XMLHttpRequest.DONE) {
+      let status = req.status;
+      if (status === 0 || (200 >= status && status < 400)) {
+        let productsPrincipal = JSON.parse(this.responseText);
+        console.log('Productos Obtenidosssssssssss: ', productsPrincipal);
+        for (let i = 0; i < 5; i++) {
+          let div = document.createElement('div');
+          div.classList.add("carousel-item");
+          let tr = document.createElement('tr');
+          tr.innerHTML = '<th scope="row">'+productsPrincipal.datos[i].nombre+'</th><td>' + productsPrincipal.datos[i].cantidad + '</td><td><input id="sellQuantity'+productsPrincipal.datos[i].id+'" class="form-control" type="number" name="" value=""></td><td><button onclick="sellProduct('+productsPrincipal.datos[i].id+')" type="button" class="btn btn-primary">Vender</button></td>'
+          if (productsPrincipal.datos[i].categorias.length > 0){
+            if (productsPrincipal.datos[i].descuento===null) {
+              div.innerHTML = '<div class="principal-product"><div class="principal-card card-1"><div class="principal-text"><h1>'+productsPrincipal.datos[i].nombre+'</h1><h2>Precio</h2><h3>'+productsPrincipal.datos[i].precio_total+'$</h3><h4>Stock: 32</h4><p>Gomita Fini + Oreo + Pringle + Milka + Chips Ahoy</p><div><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none"  data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" type="button" name="button">borrar</button></div></div><img class="img-fluid img-principal" src="' + productsPrincipal.datos[i].ruta_imagen +  '" alt=""></div></div>';
+            }else {
+              div.innerHTML = '<div class="principal-product"><div class="principal-card card-1"><div class="principal-text"><h1>'+productsPrincipal.datos[i].nombre+'</h1><h2>Precio</h2><h3>'+productsPrincipal.datos[i].precio_total+'$</h3><h4>Stock: 32</h4><p>Gomita Fini + Oreo + Pringle + Milka + Chips Ahoy</p><div><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none"  data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" type="button" name="button">borrar</button></div></div><img class="img-fluid img-principal" src="' + productsPrincipal.datos[i].ruta_imagen +  '" alt=""></div></div>';
+            }
+          } else {
+            if (productsPrincipal.datos[i].descuento===null) {
+              div.innerHTML = '<div class="principal-product"><div class="principal-card card-1"><div class="principal-text"><h1>'+productsPrincipal.datos[i].nombre+'</h1><h2>Precio</h2><h3>'+productsPrincipal.datos[i].precio_total+'$</h3><h4>Stock: 32</h4><p>Gomita Fini + Oreo + Pringle + Milka + Chips Ahoy</p><div><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none"  data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" type="button" name="button">borrar</button></div></div><img class="img-fluid img-principal" src="' + productsPrincipal.datos[i].ruta_imagen +  '" alt=""></div></div>';
+            }else {
+              div.innerHTML = '<div class="principal-product"><div class="principal-card card-1"><div class="principal-text"><h1>'+productsPrincipal.datos[i].nombre+'</h1><h2>Precio</h2><h3>'+productsPrincipal.datos[i].precio_total+'$</h3><h4>Stock: 32</h4><p>Gomita Fini + Oreo + Pringle + Milka + Chips Ahoy</p><div><button data-toggle="modal" data-target="#buyInfo" type="button" name="button">Compra</button><button class="buttonUpdate" style="display:none"  data-toggle="modal" data-target="#editProduct" type="button" name="button">editar</button><button class="buttonDelete" style="display:none" type="button" name="button">borrar</button></div></div><img class="img-fluid img-principal" src="' + productsPrincipal.datos[i].ruta_imagen +  '" alt=""></div></div>';
+            }
+          }
+          principalContainer.appendChild(div);
+        }
+      }
+    }
+  };
+  req.send();
+}
 
 
 
@@ -141,6 +181,7 @@ function getProducts() {
       if (status === 0 || (200 >= status && status < 400)) {
         let products = JSON.parse(this.responseText);
         console.log('Productos Obtenidos:: ',products);
+        getProductsPrincipal();
         for (let i = 0; i < products.datos.length; i++) {
           let div = document.createElement('div')
           let tr = document.createElement('tr');
@@ -172,12 +213,14 @@ function getProducts() {
     }
   };
   req.send();
+
 }
 
+
+
+
 function deleteProduct(id) {
-
   let opcion = confirm("Clicka en Aceptar o Cancelar");
-
   if (opcion == true) {
     let token = sessionStorage.getItem('authToken');
     let tokenCapitalized = token.charAt(0).toUpperCase() + token.substring(1);
@@ -221,13 +264,15 @@ function getCategorias() {
     }
   };
   req.send();
-}
 
+}
 
 
 window.onload = function() {
   getCategorias();
+
   getProducts();
+
 };
 
 

@@ -349,7 +349,7 @@ span {
 .category-filter {
   display: flex;
   width: 100vw;
-  padding: 30px 60px 30px 60px;
+  padding: 30px 20px 30px 20px;
   justify-content: space-between;
 }
 

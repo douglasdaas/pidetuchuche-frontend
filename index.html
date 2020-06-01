@@ -42,7 +42,6 @@
 <div class="opacity">
   <div class="pos-f-t">
     <!-- Modal create product -->
-    <!-- Modal -->
     <div class="modal fade" id="createProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -157,9 +156,6 @@
             </div>
 
           </div>
-          <div class="modal-footer">
-            <button onclick="createProduct()" type="button" data-dismiss="modal" class="btn btn-primary">Crear producto</button>
-          </div>
         </div>
       </div>
     </div>
@@ -249,9 +245,34 @@
           <div class="modal-footer">
             <button onclick="editProduct()" type="button" data-dismiss="modal" class="btn btn-primary">Modificar producto</button>
           </div>
-        </div>
+        </div>    </div>
       </div>
+    <!-- Modal PDF -->
+    <div class="modal fade" id="PDF" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="create-product" class="container">
+              <form id="createForm">
+                <div class="form-group">
+                  <label for="product_name">Catalogo PDF</label>
+                </div>
+                <div class="custom-file">
+                  <div class="form-group">
+                    <label for="product_name">Archivo</label>
+                    <input type="file" class="" value="" id="pdfFile">
+                  </div>
+                </div>
+              </form>
+              <small style="text-align: right !important;">Espera que salga una alerta con "PDF actualizado"</small>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button onclick="editPDF()" type="button" data-dismiss="modal" class="btn btn-primary">Modificar PDF</button>
+          </div>
+        </div>    </div>
     </div>
+
 
     <!-- Modal create sess -->
     <div class="modal fade" id="openMenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -414,6 +435,9 @@
       </div>
       <div>
         <a href="#container-products"><button onclick="showAll()" type='button'>Todo</button></a>
+      </div>
+      <div>
+        <a href="#"><button style="color: rgba(0, 0, 0, 0.98); background: linear-gradient(0deg, rgb(185,185,185) 0%, rgb(255, 255, 255) 100%); !important;" onclick="getPDFURL()" type='button'>Catalogo PDF</button></a>
       </div>
 
 <!--      <div>-->

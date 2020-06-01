@@ -21,6 +21,7 @@ let dulces = document.getElementById('dulces')
 let salados = document.getElementById('salados')
 let editProductContainer = document.getElementById('editProduct');
 const url = 'https://pidetuchuche-backend.herokuapp.com';
+// const url = ' http://127.0.0.1:3334';
 const req = new XMLHttpRequest();
 
 
@@ -389,6 +390,30 @@ function editProduct() {
 
 }
 
+function editPDF() {
+  let token = sessionStorage.getItem('authToken');
+  let tokenCapitalized = token.charAt(0).toUpperCase() + token.substring(1);
+  let pdfFile = document.getElementById('pdfFile');
+
+  const pdfData = new FormData();
+
+  if (pdfFile.files[0] !== undefined){
+    pdfData.append("pdf", pdfFile.files[0]);
+  }
+
+  req.open("PATCH", url + '/miselaneos/1', true);
+  req.setRequestHeader("Authorization", tokenCapitalized);
+  req.onreadystatechange = function () {
+    if(req.readyState === 4 && req.status === 200 ) {
+      alert('PDF Actualizado');
+    } else if (req.status === 500){
+      alert('Error')
+    }
+  }
+  req.send(pdfData);
+}
+
+
 function sellProduct(quantityID) {
   let token = sessionStorage.getItem('authToken');
   let tokenCapitalized = token.charAt(0).toUpperCase() + token.substring(1);
@@ -500,7 +525,7 @@ function loginOnClick() {
         let sessionToken = session.data;
         let authToken = sessionToken.type + ' ' + sessionToken.token;
         sessionStorage.setItem('authToken', authToken);
-        createProductContainer.innerHTML = '<button data-dismiss="modal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#createProduct">Crear producto</button><br><button data-dismiss="modal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#sellProduct">Ventas</button><br><button onclick="destroySession();" data-dismiss="modal" type="button" class="btn btn-primary" data-toggle="modal" >Cerrar sesión</button>'
+        createProductContainer.innerHTML = '<button data-dismiss="modal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#createProduct">Crear producto</button><br><button data-dismiss="modal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#sellProduct">Ventas</button><br><button data-dismiss="modal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#PDF">Subir PDF</button><br><button onclick="destroySession();" data-dismiss="modal" type="button" class="btn btn-primary" data-toggle="modal" >Cerrar sesión</button>'
 
         for (let i = 0; i < deleted.length; i++) {
           deleted[i].style.display = "";
@@ -523,5 +548,23 @@ function destroySession() {
   sessionStorage.removeItem('authToken')
   alert('Sesión cerrada');
   location.reload();
+
+}
+
+function getPDFURL() {
+  req.open('GET', url + '/miselaneos/1', true);
+  req.onreadystatechange = function () {
+    if(req.readyState === XMLHttpRequest.DONE) {
+      let status = req.status;
+      if (status === 0 || (200 >= status && status < 400)) {
+        let PDF = JSON.parse(this.responseText);
+        let url = PDF.datos.ruta
+        console.log(url)
+        console.log(typeof url)
+        window.location.replace(url)
+      }
+    }
+  };
+  req.send();
 
 }
